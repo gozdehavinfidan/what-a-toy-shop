@@ -4,10 +4,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-h);
-  /* Fluid root size: stays 16px up to ~1410px (small/medium unchanged), then
-     grows on large monitors so the whole rem-based UI scales up and content
-     never looks tiny on big screens. Caps at 23px (~2560px+). */
-  font-size: clamp(16px, 4px + 0.85vw, 23px);
+  /* Fluid root size — the master dial for the whole rem-based UI:
+       • small monitors (<~1410px) scale DOWN toward a 14px floor (~1175px),
+       • ~1410px lands at the familiar 16px,
+       • large monitors scale UP, capped at 23px (~2560px+).
+     So content shrinks on small screens and grows on big ones, proportionally. */
+  font-size: clamp(14px, 4px + 0.85vw, 23px);
 }
 
 body {
