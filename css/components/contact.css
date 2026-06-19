@@ -32,6 +32,18 @@
   max-width: 48ch;
 }
 
+/* Inline Instagram handle inside the lead — gold link on the navy page. */
+.contact__handle {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+.contact__handle:hover {
+  color: var(--cream);
+}
+
 .contact__actions {
   display: flex;
   flex-wrap: wrap;
