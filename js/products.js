@@ -8,17 +8,6 @@
 
 const PRODUCTS_URL = 'content/products.json';
 
-// Short mall names for the tag + a11y label, keyed by the shop id used in
-// content/locations.json (so a product can point at one shop).
-const SHOP_NAMES = {
-  'woodland': 'Woodland Hills',
-  'tulsa-premium': 'Tulsa Premium Outlets',
-  'empire': 'The Empire Mall',
-  'towne-east': 'Towne East',
-  'grapevine': 'Grapevine Mills',
-  'battlefield': 'Battlefield Mall',
-};
-
 /**
  * Build a single product card element.
  * @param {{id:string,title:string,blurb:string,photo:string}} product
@@ -32,12 +21,11 @@ function buildCard(product) {
   // Clicking the card takes the visitor to the Shop section and opens that
   // shop's detail panel (name + map location + Get Directions) — so the card
   // leads somewhere useful instead of just showing photos.
-  const shopName = SHOP_NAMES[product.shop];
   const goToShop = () => {
     const wt = window.WhatAToy || {};
-    // Scroll to the Shop section via the canonical in-page nav path (the Shop
-    // nav link → transitions.js wipe + lenis scroll) so it behaves exactly like
-    // every other nav jump. Fallbacks cover the no-link / no-lenis cases.
+    // Just navigate to the "Visit Us" (shop locations) section — no specific
+    // shop and no directions. Use the canonical nav path so it scrolls like
+    // every other nav jump.
     const navLink = document.querySelector('a[data-nav][href="#locations"]');
     if (navLink) {
       navLink.click();
@@ -47,20 +35,10 @@ function buildCard(product) {
       const target = document.getElementById('locations');
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     }
-    // After the wipe + scroll settle, open + highlight the shop (flies the globe,
-    // opens its detail with Get Directions). preventScroll in store-detail keeps
-    // this from yanking the viewport.
-    if (!product.shop) return;
-    window.setTimeout(() => {
-      const btn = document.querySelector(`.store-list__btn[data-id="${product.shop}"]`);
-      if (btn) btn.click();
-      else if (typeof wt.openStoreDetail === 'function') wt.openStoreDetail(product.shop);
-    }, 1400);
   };
   card.tabIndex = 0;
   card.setAttribute('role', 'button');
-  card.setAttribute('aria-label',
-    `Find ${product.title} at ${shopName || 'our shops'} — see the shop location and directions`);
+  card.setAttribute('aria-label', `${product.title} — see our shops`);
   card.addEventListener('click', goToShop);
   card.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -92,10 +70,10 @@ function buildCard(product) {
   blurb.className = 'card__text';
   blurb.textContent = product.blurb;
 
-  // Soft tag — names the shop this toy is found in (drives foot traffic).
+  // Soft tag — informational (drives foot traffic, not a purchase).
   const tag = document.createElement('span');
   tag.className = 'product-card__tag';
-  tag.textContent = shopName ? `Find it at ${shopName}` : 'Find it in our shops';
+  tag.textContent = 'Find it in our shops';
 
   body.append(title, blurb, tag);
   card.append(media, body);
