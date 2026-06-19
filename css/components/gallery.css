@@ -4,14 +4,9 @@
    Tokens only; cheerful cream/yellow surfaces with red active state.
    ========================================================================= */
 
-/* The global .section rule pads the top extra (nav-h + space-5) to clear the
-   sticky bar, which biases content downward. Because our navbar is translucent
-   (the golden bg shows through it), that reads as "not centered — gap on top."
-   Use symmetric vertical padding so the preview centers in the FULL viewport,
-   while keeping a whole nav-h of clearance so nothing hides under the bar. */
-#gallery {
-  padding-block: var(--nav-h);
-}
+/* (Gallery uses the shared .section centering — its old symmetric-padding
+   override was retired once .section started reserving the navbar at the
+   bottom, so the preview now centers like every other section.) */
 
 /* ---- Filter chips row ---- */
 .gallery__filters {
