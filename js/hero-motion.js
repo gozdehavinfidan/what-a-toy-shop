@@ -12,11 +12,10 @@
    ========================================================================= */
 
 const PHOTO_POOLS = {
+  // Biggest card: pinned to the storefront hero image — single entry means the
+  // cross-fade loop skips it (pool.length < 2), so this photo never changes.
   'hero__photo--main': [
-    'assets/Premium Outlet Mall TULSA/PremiumOutlet (1).jpeg',
-    'assets/Grapevine Mills Mall GRAPEVINE/Grapevine (1).jpeg',
-    'assets/The Empire Mall South Dakota/Empire (1).jpeg',
-    'assets/Woodland Hills Mall TULSA/Woodland (1).jpeg',
+    'assets/hero section main image.jpeg',
   ],
   'hero__photo--plush': [
     'assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg',

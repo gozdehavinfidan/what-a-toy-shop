@@ -8,7 +8,7 @@
 import { initSmoothScroll } from './smooth-scroll.js?v=2';
 import { initNav } from './nav.js?v=2';
 import { initHeadline } from './text-effect.js?v=2';
-import { initHeroMotion } from './hero-motion.js?v=2';
+import { initHeroMotion } from './hero-motion.js?v=3';
 import { initProducts } from './products.js?v=9';
 import { initStoreDetail } from './store-detail.js?v=7';
 import { initGlobe } from './globe-locations.js?v=9';
