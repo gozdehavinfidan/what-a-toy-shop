@@ -76,6 +76,7 @@
 .product-card .card__body {
   /* leave room for the tag at the bottom, push it down */
   flex: 1 1 auto;
+  text-align: center; /* center the title + blurb text */
 }
 
 /* ---- Soft "Find it in-store" tag — informational, NOT a buy button ---- */

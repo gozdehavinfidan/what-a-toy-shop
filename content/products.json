@@ -1,6 +1,7 @@
 [
   {
     "id": "plush",
+    "shop": "towne-east",
     "title": "Plush Friends",
     "blurb": "Soft, huggable companions for every age.",
     "photo": "assets/Towne East Square Mall WICHITA/peluslar/peluslar.jpeg",
@@ -23,6 +24,7 @@
   },
   {
     "id": "rideon",
+    "shop": "towne-east",
     "title": "Ride-On Cars & Motors",
     "blurb": "Battery-powered adventures for little drivers.",
     "photo": "assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg",
@@ -38,6 +40,7 @@
   },
   {
     "id": "dolls",
+    "shop": "battlefield",
     "title": "Dolls & Playsets",
     "blurb": "Dolls, figures, and little worlds to explore.",
     "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
@@ -49,6 +52,7 @@
   },
   {
     "id": "backpacks",
+    "shop": "battlefield",
     "title": "Character Backpacks",
     "blurb": "Bluey, Sonic, Hello Kitty — a pack for every fan.",
     "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
@@ -60,6 +64,7 @@
   },
   {
     "id": "character",
+    "shop": "battlefield",
     "title": "Anime & Game Plush",
     "blurb": "Pokémon, Stitch, and more favorites to squeeze.",
     "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
@@ -71,6 +76,7 @@
   },
   {
     "id": "sanrio",
+    "shop": "towne-east",
     "title": "Sanrio & Friends",
     "blurb": "Hello Kitty, Kuromi, and the whole crew.",
     "photo": "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg",
@@ -82,6 +88,7 @@
   },
   {
     "id": "bouquets",
+    "shop": "battlefield",
     "title": "Plush Bouquets",
     "blurb": "Soft little bouquets that never wilt.",
     "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg",
@@ -92,6 +99,7 @@
   },
   {
     "id": "keychain",
+    "shop": "towne-east",
     "title": "Keychains & Collectibles",
     "blurb": "Pocket-sized treasures and tiny finds.",
     "photo": "assets/Towne East Square Mall WICHITA/anahtarlıklar/TowneEast (8).jpeg",

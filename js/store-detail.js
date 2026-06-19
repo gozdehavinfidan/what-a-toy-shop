@@ -174,12 +174,14 @@ async function openStoreDetail(id) {
   // Next frame so the transition (opacity/transform) actually plays.
   requestAnimationFrame(() => panel.classList.add('is-open'));
 
-  // Move focus into the panel for keyboard/screen-reader users.
+  // Move focus into the panel for keyboard/screen-reader users. preventScroll
+  // so opening the panel never yanks the viewport (lets a smooth scroll that
+  // navigated here — e.g. from a product card — finish cleanly).
   if (closeBtn) {
-    closeBtn.focus();
+    closeBtn.focus({ preventScroll: true });
   } else {
     panel.setAttribute('tabindex', '-1');
-    panel.focus();
+    panel.focus({ preventScroll: true });
   }
 }
 
