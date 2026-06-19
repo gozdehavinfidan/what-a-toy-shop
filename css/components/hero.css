@@ -327,8 +327,8 @@
   left: 7%;
   /* Sized as a % of the showcase (container units) so it scales WITH the photo
      collage and the badge:card ratio never drifts on small/short monitors. */
-  width: 30cqi;
-  height: 30cqi;
+  width: 25cqi;
+  height: 25cqi;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -342,7 +342,7 @@
 .hero__badge::before {
   content: "";
   position: absolute;
-  inset: 2.1cqi; /* dashed inner ring offset scales with the badge */
+  inset: 1.75cqi; /* dashed inner ring offset scales with the badge */
   border-radius: 50%;
   background: var(--cream);
   border: 2px dashed rgba(42, 59, 110, 0.5);
@@ -353,7 +353,7 @@
   font-weight: 700;
   /* Scales with the badge (which scales with the showcase) so the text always
      fits the sticker; clamped for a readable floor/ceiling. */
-  font-size: clamp(0.8rem, 4cqi, 1.45rem);
+  font-size: clamp(0.72rem, 3.35cqi, 1.25rem);
   line-height: 1.05;
   text-align: center;
   color: var(--red);
