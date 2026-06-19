@@ -269,10 +269,10 @@
 /* Main anchor — the full storefront (landscape; ratio matches the photo so the
    whole shop front shows with no cropping). Centered in the square showcase. */
 .hero__photo--main {
-  width: 72%;
+  width: 80%;
   aspect-ratio: 1031 / 702;
-  top: 26%;
-  left: 14%;
+  top: 23%;
+  left: 10%;
   z-index: 2;
   animation-delay: 0.05s;
   /* float baked WITH the rotation so the tilt is preserved while bobbing */
