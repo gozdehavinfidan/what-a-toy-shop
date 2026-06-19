@@ -58,6 +58,41 @@
   outline-offset: 3px;
 }
 
+/* Gmail — Google red (the "Email Us" CTA opens a Gmail compose window) */
+.btn--gmail {
+  background: #ea4335;
+  color: #fff;
+  border-color: #ea4335;
+  box-shadow: 0 6px 18px rgba(234, 67, 53, 0.35);
+}
+.btn--gmail:hover {
+  background: #d33b2c;
+  border-color: #d33b2c;
+  color: #fff;
+  transform: translateY(-2px);
+}
+.btn--gmail:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+}
+
+/* Instagram — the brand's signature multicolor gradient */
+.btn--instagram {
+  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 22%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(214, 41, 118, 0.32);
+}
+.btn--instagram:hover {
+  filter: brightness(1.06) saturate(1.05);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.btn--instagram:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+}
+
 .btn--sm { font-size: var(--fs-sm); min-height: 2.75rem; padding: 0.65em 1.3em; }
 .btn--block { width: 100%; }
 
