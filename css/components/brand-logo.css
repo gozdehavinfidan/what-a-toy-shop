@@ -1,0 +1,39 @@
+/* =========================================================================
+   What-A-Toy! — brand-logo.css
+   Styles for the code-drawn (inline SVG) wordmark that imitates logo.jpeg:
+   a red rounded badge, navy-outlined cream "What-A-Toy!" lettering, and gold
+   wavy stripes. Inline SVG inherits the page's Fredoka font for the text.
+   ========================================================================= */
+
+.brand-logo {
+  display: block;
+  height: auto;
+  width: auto;
+}
+
+/* Navbar lockup size */
+.navbar__brand .brand-logo {
+  height: 64px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* Footer lockup size (larger) */
+.footer__brand .brand-logo {
+  height: 84px;
+}
+
+/* The wordmark text: navy outline behind a cream fill (paint-order draws the
+   stroke first so it reads as an outline, like the real logo). */
+.brand-logo__word {
+  font-family: var(--font-display, "Fredoka", sans-serif);
+  font-weight: 700;
+  fill: var(--cream);
+  stroke: var(--navy);
+  paint-order: stroke;
+  stroke-linejoin: round;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 640px) {
+  .navbar__brand .brand-logo { height: 52px; }
+}

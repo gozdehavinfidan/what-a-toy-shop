@@ -1,0 +1,151 @@
+/* =========================================================================
+   What-A-Toy! — Lightbox modal
+   Full-screen image viewer: backdrop, image, caption, prev/next, counter.
+   Tokens only. Reduced-motion safe.
+   ========================================================================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: none;               /* toggled to flex when open */
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background: var(--scrim); /* navy-tinted scrim */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.lightbox.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+/* ---- Figure (image + caption stack) ---- */
+.lightbox__figure {
+  position: relative;
+  margin: 0;
+  /* leave side room for the edge-pinned prev/next buttons */
+  max-width: min(82vw, 980px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  transform: scale(0.96);
+  transition: transform var(--dur-base) var(--ease-bounce);
+}
+
+.lightbox.is-open .lightbox__figure {
+  transform: scale(1);
+}
+
+.lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-lg);
+}
+
+.lightbox__caption {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--on-red);
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.lightbox__counter {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  color: var(--navy);
+  background: var(--gold);
+  border-radius: var(--radius-pill);
+  padding: 2px var(--space-3);
+  margin-left: var(--space-2);
+}
+
+/* ---- Control buttons (close / prev / next) ---- */
+.lightbox__btn {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--red);
+  color: var(--on-red);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-red);
+  transition: background var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.lightbox__btn:hover {
+  background: var(--red-dark);
+  transform: scale(1.08);
+}
+
+.lightbox__btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Pinned to the lightbox (viewport) edges so they never overlap the image */
+.lightbox__btn--close {
+  top: var(--space-4);
+  right: var(--space-4);
+}
+
+.lightbox__btn--prev {
+  top: 50%;
+  left: var(--space-4);
+  transform: translateY(-50%);
+}
+
+.lightbox__btn--next {
+  top: 50%;
+  right: var(--space-4);
+  transform: translateY(-50%);
+}
+
+.lightbox__btn--prev:hover,
+.lightbox__btn--next:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* ---- Small screens: smaller controls, tighter to the edges ---- */
+@media (max-width: 760px) {
+  .lightbox__btn { width: 44px; height: 44px; font-size: 1.3rem; }
+  .lightbox__btn--close { top: var(--space-3); right: var(--space-3); }
+  .lightbox__btn--prev { left: var(--space-2); }
+  .lightbox__btn--next { right: var(--space-2); }
+  .lightbox__figure { max-width: 92vw; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox__figure,
+  .lightbox__btn {
+    transition: none;
+  }
+  .lightbox__figure { transform: none; }
+  .lightbox.is-open .lightbox__figure { transform: none; }
+}

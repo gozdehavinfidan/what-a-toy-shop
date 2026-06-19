@@ -1,0 +1,128 @@
+{
+  "groups": [
+    {
+      "id": "woodland",
+      "label": "Woodland Hills, Tulsa",
+      "photos": [
+        "assets/Woodland Hills Mall TULSA/Woodland (1).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (5).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (6).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (7).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (8).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (9).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (11).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (12).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (13).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (14).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (15).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (16).jpeg",
+        "assets/Woodland Hills Mall TULSA/Woodland (17).jpeg"
+      ]
+    },
+    {
+      "id": "tulsa-premium",
+      "label": "Premium Outlets, Jenks",
+      "photos": [
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (1).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (2).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (3).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (4).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (5).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (6).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (7).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (8).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (9).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (10).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (11).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (12).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (13).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (14).jpeg",
+        "assets/Premium Outlet Mall TULSA/PremiumOutlet (15).jpeg"
+      ]
+    },
+    {
+      "id": "empire",
+      "label": "Empire Mall, Sioux Falls",
+      "photos": [
+        "assets/The Empire Mall South Dakota/Empire (1).jpeg",
+        "assets/The Empire Mall South Dakota/Empire (2).jpeg",
+        "assets/The Empire Mall South Dakota/Empire (3).jpeg",
+        "assets/The Empire Mall South Dakota/Empire (4).jpeg",
+        "assets/The Empire Mall South Dakota/Empire (5).jpeg"
+      ]
+    },
+    {
+      "id": "towne-east",
+      "label": "Towne East, Wichita",
+      "photos": [
+        "assets/Towne East Square Mall WICHITA/TowneEast (2).jpeg",
+        "assets/Towne East Square Mall WICHITA/TowneEast (3).jpeg",
+        "assets/Towne East Square Mall WICHITA/TowneEast (4).jpeg",
+        "assets/Towne East Square Mall WICHITA/TowneEast (5).jpeg",
+        "assets/Towne East Square Mall WICHITA/TowneEast (6).jpeg",
+        "assets/Towne East Square Mall WICHITA/TowneEast (7).jpeg",
+        "assets/Towne East Square Mall WICHITA/TowneEast (9).jpeg",
+        "assets/Towne East Square Mall WICHITA/TowneEast (30).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/peluslar.jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (1).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (11).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (12).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (13).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (15).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (16).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (24).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (25).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (26).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (27).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (28).jpeg",
+        "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (29).jpeg",
+        "assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg",
+        "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (17).jpeg",
+        "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (18).jpeg",
+        "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (20).jpeg",
+        "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (21).jpeg",
+        "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (22).jpeg",
+        "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (23).jpeg",
+        "assets/Towne East Square Mall WICHITA/anahtarlıklar/TowneEast (8).jpeg"
+      ]
+    },
+    {
+      "id": "grapevine",
+      "label": "Grapevine Mills, TX",
+      "photos": [
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (1).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (2).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (3).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (4).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (5).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (6).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (7).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (8).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (9).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (10).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (11).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (12).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (13).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (14).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (15).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (16).jpeg",
+        "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (17).jpeg"
+      ]
+    },
+    {
+      "id": "battlefield",
+      "label": "Battlefield Mall, MO",
+      "photos": [
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11.jpeg",
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg",
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (3).jpeg",
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg",
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (2).jpeg",
+        "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (3).jpeg"
+      ]
+    }
+  ]
+}

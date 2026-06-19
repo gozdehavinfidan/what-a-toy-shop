@@ -1,0 +1,102 @@
+[
+  {
+    "id": "plush",
+    "title": "Plush Friends",
+    "blurb": "Soft, huggable companions for every age.",
+    "photo": "assets/Towne East Square Mall WICHITA/peluslar/peluslar.jpeg",
+    "photos": [
+      "assets/Towne East Square Mall WICHITA/peluslar/peluslar.jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (1).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (11).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (12).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (13).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (15).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (16).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (24).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (25).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (26).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (27).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (28).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (29).jpeg"
+    ]
+  },
+  {
+    "id": "rideon",
+    "title": "Ride-On Cars & Motors",
+    "blurb": "Battery-powered adventures for little drivers.",
+    "photo": "assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg",
+    "photos": [
+      "assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg",
+      "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (17).jpeg",
+      "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (18).jpeg",
+      "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (20).jpeg",
+      "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (21).jpeg",
+      "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (22).jpeg",
+      "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (23).jpeg"
+    ]
+  },
+  {
+    "id": "dolls",
+    "title": "Dolls & Playsets",
+    "blurb": "Dolls, figures, and little worlds to explore.",
+    "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg",
+    "photos": [
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (2).jpeg"
+    ]
+  },
+  {
+    "id": "backpacks",
+    "title": "Character Backpacks",
+    "blurb": "Bluey, Sonic, Hello Kitty — a pack for every fan.",
+    "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
+    "photos": [
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (2).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg"
+    ]
+  },
+  {
+    "id": "character",
+    "title": "Anime & Game Plush",
+    "blurb": "Pokémon, Stitch, and more favorites to squeeze.",
+    "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
+    "photos": [
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
+      "assets/The Empire Mall South Dakota/Empire (1).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg"
+    ]
+  },
+  {
+    "id": "sanrio",
+    "title": "Sanrio & Friends",
+    "blurb": "Hello Kitty, Kuromi, and the whole crew.",
+    "photo": "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg",
+    "photos": [
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (12).jpeg",
+      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (11).jpeg"
+    ]
+  },
+  {
+    "id": "bouquets",
+    "title": "Plush Bouquets",
+    "blurb": "Soft little bouquets that never wilt.",
+    "photo": "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg",
+    "photos": [
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg"
+    ]
+  },
+  {
+    "id": "keychain",
+    "title": "Keychains & Collectibles",
+    "blurb": "Pocket-sized treasures and tiny finds.",
+    "photo": "assets/Towne East Square Mall WICHITA/anahtarlıklar/TowneEast (8).jpeg",
+    "photos": [
+      "assets/Towne East Square Mall WICHITA/anahtarlıklar/TowneEast (8).jpeg"
+    ]
+  }
+]

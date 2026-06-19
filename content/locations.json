@@ -1,0 +1,109 @@
+[
+  {
+    "id": "woodland",
+    "name": "Woodland Hills Mall",
+    "mall": "Woodland Hills Mall",
+    "city": "Tulsa",
+    "state": "OK",
+    "lat": 36.30,
+    "lng": -95.70,
+    "mapsQuery": "What-A-Toy Woodland Hills Mall Tulsa OK",
+    "photos": [
+      "assets/Woodland Hills Mall TULSA/Woodland (1).jpeg",
+      "assets/Woodland Hills Mall TULSA/Woodland (5).jpeg",
+      "assets/Woodland Hills Mall TULSA/Woodland (6).jpeg",
+      "assets/Woodland Hills Mall TULSA/Woodland (7).jpeg",
+      "assets/Woodland Hills Mall TULSA/Woodland (8).jpeg",
+      "assets/Woodland Hills Mall TULSA/Woodland (9).jpeg"
+    ]
+  },
+  {
+    "id": "tulsa-premium",
+    "name": "Tulsa Premium Outlets",
+    "mall": "Tulsa Premium Outlets",
+    "city": "Jenks",
+    "state": "OK",
+    "lat": 35.70,
+    "lng": -96.20,
+    "mapsQuery": "What-A-Toy Tulsa Premium Outlets Jenks OK",
+    "photos": [
+      "assets/Premium Outlet Mall TULSA/PremiumOutlet (1).jpeg",
+      "assets/Premium Outlet Mall TULSA/PremiumOutlet (2).jpeg",
+      "assets/Premium Outlet Mall TULSA/PremiumOutlet (3).jpeg",
+      "assets/Premium Outlet Mall TULSA/PremiumOutlet (4).jpeg",
+      "assets/Premium Outlet Mall TULSA/PremiumOutlet (5).jpeg",
+      "assets/Premium Outlet Mall TULSA/PremiumOutlet (6).jpeg"
+    ]
+  },
+  {
+    "id": "empire",
+    "name": "The Empire Mall",
+    "mall": "The Empire Mall",
+    "city": "Sioux Falls",
+    "state": "SD",
+    "lat": 43.508,
+    "lng": -96.770,
+    "mapsQuery": "What-A-Toy The Empire Mall Sioux Falls SD",
+    "photos": [
+      "assets/The Empire Mall South Dakota/Empire (1).jpeg",
+      "assets/The Empire Mall South Dakota/Empire (2).jpeg",
+      "assets/The Empire Mall South Dakota/Empire (3).jpeg",
+      "assets/The Empire Mall South Dakota/Empire (4).jpeg",
+      "assets/The Empire Mall South Dakota/Empire (5).jpeg"
+    ]
+  },
+  {
+    "id": "towne-east",
+    "name": "Towne East Square",
+    "mall": "Towne East Square",
+    "city": "Wichita",
+    "state": "KS",
+    "lat": 37.700,
+    "lng": -97.220,
+    "mapsQuery": "What-A-Toy Towne East Square Wichita KS",
+    "photos": [
+      "assets/Towne East Square Mall WICHITA/TowneEast (2).jpeg",
+      "assets/Towne East Square Mall WICHITA/TowneEast (3).jpeg",
+      "assets/Towne East Square Mall WICHITA/TowneEast (4).jpeg",
+      "assets/Towne East Square Mall WICHITA/TowneEast (5).jpeg",
+      "assets/Towne East Square Mall WICHITA/TowneEast (6).jpeg",
+      "assets/Towne East Square Mall WICHITA/TowneEast (7).jpeg"
+    ]
+  },
+  {
+    "id": "grapevine",
+    "name": "Grapevine Mills",
+    "mall": "Grapevine Mills",
+    "city": "Grapevine",
+    "state": "TX",
+    "lat": 32.982,
+    "lng": -97.042,
+    "mapsQuery": "What-A-Toy Grapevine Mills Grapevine TX",
+    "photos": [
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (1).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (2).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (3).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (4).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (5).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (6).jpeg"
+    ]
+  },
+  {
+    "id": "battlefield",
+    "name": "Battlefield Mall",
+    "mall": "Battlefield Mall",
+    "city": "Springfield",
+    "state": "MO",
+    "lat": 37.171,
+    "lng": -93.262,
+    "mapsQuery": "What-A-Toy Battlefield Mall Springfield MO",
+    "photos": [
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11.jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (2).jpeg"
+    ]
+  }
+]

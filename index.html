@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A family-owned toy store with six mall locations across the heartland. Come play, browse, and find wonder in every corner." />
+  <title>What-A-Toy! — More Than a Toy Store</title>
+
+  <link rel="icon" href="logo.jpeg" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="logo.jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Styles (linked in order; some files written by other agents) -->
+  <link rel="stylesheet" href="css/reset.css?v=45" />
+  <link rel="stylesheet" href="css/variables.css?v=45" />
+  <link rel="stylesheet" href="css/base.css?v=45" />
+  <link rel="stylesheet" href="css/components/navbar.css?v=45" />
+  <link rel="stylesheet" href="css/components/hero.css?v=45" />
+  <link rel="stylesheet" href="css/components/buttons.css?v=45" />
+  <link rel="stylesheet" href="css/components/cards.css?v=45" />
+  <link rel="stylesheet" href="css/components/product-card.css?v=45" />
+  <link rel="stylesheet" href="css/components/globe.css?v=45" />
+  <link rel="stylesheet" href="css/components/store-detail.css?v=45" />
+  <link rel="stylesheet" href="css/components/gallery.css?v=45" />
+  <link rel="stylesheet" href="css/components/lightbox.css?v=45" />
+  <link rel="stylesheet" href="css/components/contact.css?v=45" />
+  <link rel="stylesheet" href="css/components/footer.css?v=45" />
+  <link rel="stylesheet" href="css/components/page-dots.css?v=45" />
+  <link rel="stylesheet" href="css/components/section.css?v=45" />
+  <link rel="stylesheet" href="css/components/transition.css?v=45" />
+  <link rel="stylesheet" href="css/components/brand-logo.css?v=46" />
+  <link rel="stylesheet" href="css/animations.css?v=45" />
+  <!-- bg-theme last so its section-transparency + dark-section text overrides win -->
+  <link rel="stylesheet" href="css/components/bg-theme.css?v=45" />
+</head>
+<body>
+  <!-- Fixed scroll-journey background: #bg-layer's color is tweened per section
+       by js/bg-scroll.js. All hero decoration now lives INSIDE the hero. -->
+  <div id="bg-layer" aria-hidden="true"></div>
+
+  <a class="skip-link sr-only" href="#main">Skip to main content</a>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar" class="navbar">
+    <div class="container navbar__inner">
+      <a class="navbar__brand" href="#hero" data-nav aria-label="What-A-Toy! home">
+        <!-- Code-drawn wordmark imitating logo.jpeg (no raster image) -->
+        <svg class="brand-logo" viewBox="0 0 300 110" role="img" aria-label="What-A-Toy!">
+          <rect x="3" y="3" width="294" height="104" rx="18" fill="#D8392B" stroke="#2A3B6E" stroke-width="3"/>
+          <g fill="none" stroke-linecap="round">
+            <path d="M20 84 C 80 68, 150 100, 284 76" stroke="#F2B82B" stroke-width="6"/>
+            <path d="M20 92 C 80 78, 150 106, 284 84" stroke="#F4E8D3" stroke-width="4"/>
+            <path d="M20 99 C 92 92, 160 110, 284 95" stroke="#F2B82B" stroke-width="3" opacity="0.85"/>
+          </g>
+          <text class="brand-logo__word" x="150" y="56" text-anchor="middle" font-size="46" stroke-width="3.5">What-A-Toy!</text>
+        </svg>
+      </a>
+
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="navbar__bar"></span>
+        <span class="navbar__bar"></span>
+        <span class="navbar__bar"></span>
+      </button>
+
+      <nav class="navbar__nav" id="nav-menu" aria-label="Primary">
+        <ul class="navbar__links reset">
+          <li><a href="#products" data-nav class="navbar__link">Toys</a></li>
+          <li><a href="#locations" data-nav class="navbar__link">Stores</a></li>
+          <li><a href="#gallery" data-nav class="navbar__link">Gallery</a></li>
+          <li><a href="#contact" data-nav class="navbar__link">Our Story</a></li>
+        </ul>
+        <a href="#locations" data-nav class="btn btn--primary btn--sm navbar__cta">Find a Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ===================== HERO ===================== -->
+    <section id="hero" class="hero" data-bg="sun">
+      <!-- Playful decoration, clipped to the hero (scrolls away with it) -->
+      <div class="hero__decor" aria-hidden="true">
+        <span class="hero__blob hero__blob--a"></span>
+        <span class="hero__blob hero__blob--b"></span>
+        <span class="hero__dot hero__dot--1"></span>
+        <span class="hero__dot hero__dot--2"></span>
+        <span class="hero__dot hero__dot--3"></span>
+        <span class="hero__dot hero__dot--4"></span>
+        <span class="hero__dot hero__dot--5"></span>
+        <span class="hero__dot hero__dot--6"></span>
+        <span class="hero__star hero__star--1">&#9733;</span>
+        <span class="hero__star hero__star--2">&#9733;</span>
+        <span class="hero__star hero__star--3">&#9733;</span>
+        <span class="hero__star hero__star--4">&#9733;</span>
+        <span class="hero__plus hero__plus--1">+</span>
+        <span class="hero__plus hero__plus--2">+</span>
+        <span class="hero__ring hero__ring--1"></span>
+        <span class="hero__ring hero__ring--2"></span>
+        <span class="hero__tri hero__tri--1"></span>
+        <span class="hero__tri hero__tri--2"></span>
+      </div>
+
+      <div class="container hero__grid">
+        <!-- Copy column -->
+        <div class="hero__content">
+          <p class="hero__eyebrow"><span class="hero__eyebrow-star" aria-hidden="true">&#9733;</span> Welcome to What-A-Toy!</p>
+          <h1 id="hero-title" class="hero__title" aria-label="A Wonderland of Toys"><span class="hero__title-fixed">A Wonderland of</span> <span class="hero__rotator"><span class="hero__rotator-word">Toys</span></span></h1>
+          <p class="hero__tagline">Six family-run toy stores across the heartland, packed with plush, ride-ons, and pocket-sized treasures. Wonder waits in every aisle.</p>
+          <div class="hero__actions">
+            <a href="#products" data-nav class="btn btn--primary">See the Toys</a>
+            <a href="#locations" data-nav class="btn btn--ghost">Find a Store</a>
+          </div>
+          <ul class="hero__chips reset" aria-label="What you'll find on our shelves">
+            <li class="hero__chip"><span class="hero__chip-dot" style="--dot:var(--red)"></span>Plush Friends</li>
+            <li class="hero__chip"><span class="hero__chip-dot" style="--dot:#36C6B4"></span>Ride-On Cars</li>
+            <li class="hero__chip"><span class="hero__chip-dot" style="--dot:var(--gold)"></span>Collectibles</li>
+            <li class="hero__chip"><span class="hero__chip-dot" style="--dot:#5AA9E6"></span>Games &amp; Puzzles</li>
+            <li class="hero__chip"><span class="hero__chip-dot" style="--dot:#B07CE0"></span>Pocket Treasures</li>
+          </ul>
+        </div>
+
+        <!-- Real-merchandise photo collage -->
+        <div class="hero__showcase">
+          <figure class="hero__photo hero__photo--main">
+            <img src="assets/Premium%20Outlet%20Mall%20TULSA/PremiumOutlet%20(1).jpeg"
+                 alt="Inside a What-A-Toy! store: a bright aisle lined with shelves of colorful plush toys and pink and blue ride-on cars" loading="eager" decoding="async" />
+          </figure>
+          <figure class="hero__photo hero__photo--plush">
+            <img src="assets/Towne%20East%20Square%20Mall%20WICHITA/peluslar/TowneEast%20(10).jpeg"
+                 alt="Two fluffy strawberry-themed Hello Kitty plush toys on a shelf" loading="eager" decoding="async" />
+          </figure>
+          <figure class="hero__photo hero__photo--ride">
+            <img src="assets/Towne%20East%20Square%20Mall%20WICHITA/akulu%20araba%20motor/akulu%20motor.jpeg"
+                 alt="A glossy red three-wheeled ride-on motorbike for kids" loading="eager" decoding="async" />
+          </figure>
+          <div class="hero__badge" aria-hidden="true">
+            <span class="hero__badge-text">Come<br>play!</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#products" data-nav class="hero__scroll-hint" aria-label="Scroll down">
+        <span>Scroll to explore</span>
+        <span class="hero__scroll-arrow" aria-hidden="true">&#8595;</span>
+      </a>
+    </section>
+
+    <!-- ===================== PRODUCTS ===================== -->
+    <section id="products" class="section products" data-bg="red">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">On our shelves</p>
+          <h2 class="section__title">Something for every kid</h2>
+          <p class="section__lead">A small taste of what's in store. There's always more waiting in person.</p>
+        </div>
+        <div id="products-grid" class="products__grid" aria-live="polite">
+          <!-- products.js renders cards here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section id="gallery" class="section gallery" data-bg="sun">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">Step inside</p>
+          <h2 class="section__title">Take a look inside</h2>
+          <p class="section__lead">Real photos from our stores across four states. Filter by location, or tap any photo to zoom in.</p>
+        </div>
+        <div id="gallery-filters" class="gallery__filters" role="group" aria-label="Filter gallery by store">
+          <!-- gallery.js renders filter chips -->
+        </div>
+        <div id="gallery-grid" class="gallery__grid" aria-live="polite">
+          <!-- gallery.js renders photos -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LOCATIONS ===================== -->
+    <section id="locations" class="section locations" data-bg="navy">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="section__eyebrow">Six stores, one welcome</p>
+          <h2 class="section__title">Find your nearest store</h2>
+        </div>
+
+        <!-- Globe centered + bigger; store cards split to its left & right -->
+        <div class="locations__stage" role="region" aria-label="Store locations">
+          <ul id="store-list-left" class="store-list store-list--side reset">
+            <!-- globe-locations.js renders the first stores here -->
+          </ul>
+
+          <div class="locations__globe-wrap">
+            <div id="globe-canvas" class="locations__globe" role="img" aria-label="Interactive globe of What-A-Toy! store locations"></div>
+
+            <!-- Store detail panel — opens BELOW the globe when a store is chosen -->
+
+            <aside id="store-detail" class="store-detail" aria-label="Store details" hidden>
+              <div class="store-detail__head">
+                <h3 class="store-detail__title">Store Details</h3>
+                <button class="store-detail__close" id="store-detail-close" aria-label="Close store details">&times;</button>
+              </div>
+              <div id="store-detail-photos" class="store-detail__photos"></div>
+              <p id="store-detail-hours" class="store-detail__hours"></p>
+              <div class="store-detail__actions">
+                <a id="store-detail-directions" class="btn btn--primary btn--sm" href="#" target="_blank" rel="noopener">Get Directions</a>
+                <button id="store-detail-more" class="btn btn--ghost btn--sm" type="button">More Photos</button>
+              </div>
+            </aside>
+          </div>
+
+          <ul id="store-list-right" class="store-list store-list--side reset">
+            <!-- globe-locations.js renders the remaining stores here -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT / OUR STORY ===================== -->
+    <!-- ============ STORY + CONTACT (merged final page) ============ -->
+    <section id="contact" class="section contact" data-bg="navy">
+      <!-- Colorful balls that fall, bounce a few times, then rest on the floor. -->
+      <div class="contact__balls" aria-hidden="true">
+        <span class="contact__ball" style="--x: 6%;  --s: 30px; --c: var(--red);  --d: 0ms;   --floor: 7%;"></span>
+        <span class="contact__ball" style="--x: 17%; --s: 46px; --c: #36C6B4;     --d: 220ms; --floor: 4%;"></span>
+        <span class="contact__ball" style="--x: 28%; --s: 24px; --c: var(--gold); --d: 90ms;  --floor: 10%;"></span>
+        <span class="contact__ball" style="--x: 39%; --s: 38px; --c: #FF7A59;     --d: 340ms; --floor: 6%;"></span>
+        <span class="contact__ball" style="--x: 50%; --s: 28px; --c: #5AA9E6;     --d: 160ms; --floor: 3%;"></span>
+        <span class="contact__ball" style="--x: 61%; --s: 42px; --c: var(--gold); --d: 410ms; --floor: 8%;"></span>
+        <span class="contact__ball" style="--x: 72%; --s: 26px; --c: #B07CE0;     --d: 60ms;  --floor: 5%;"></span>
+        <span class="contact__ball" style="--x: 83%; --s: 36px; --c: var(--red);  --d: 280ms; --floor: 9%;"></span>
+        <span class="contact__ball" style="--x: 93%; --s: 32px; --c: #8ED44F;     --d: 130ms; --floor: 4%;"></span>
+        <span class="contact__ball" style="--x: 47%; --s: 20px; --c: var(--cream);--d: 480ms; --floor: 12%;"></span>
+      </div>
+      <div class="container container--narrow contact__card reveal">
+        <p class="section__eyebrow">Our story, say hello</p>
+        <h2 class="section__title">Family-run since day one</h2>
+        <p class="contact__lead">
+          One counter grew into six stores, a customer at a time — and we
+          still pick every toy the way we would for our own kids.
+        </p>
+        <p class="contact__lead">
+          Questions about a toy or a gift? Drop us a line — a real person writes back.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary" href="mailto:hello@whatatoy.example">Email Us</a>
+          <a class="btn btn--ghost" href="#locations" data-nav>Find a Store</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="footer" class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <!-- Code-drawn wordmark imitating logo.jpeg (no raster image) -->
+        <svg class="brand-logo" viewBox="0 0 300 110" role="img" aria-label="What-A-Toy!">
+          <rect x="3" y="3" width="294" height="104" rx="18" fill="#D8392B" stroke="#2A3B6E" stroke-width="3"/>
+          <g fill="none" stroke-linecap="round">
+            <path d="M20 84 C 80 68, 150 100, 284 76" stroke="#F2B82B" stroke-width="6"/>
+            <path d="M20 92 C 80 78, 150 106, 284 84" stroke="#F4E8D3" stroke-width="4"/>
+            <path d="M20 99 C 92 92, 160 110, 284 95" stroke="#F2B82B" stroke-width="3" opacity="0.85"/>
+          </g>
+          <text class="brand-logo__word" x="150" y="56" text-anchor="middle" font-size="46" stroke-width="3.5">What-A-Toy!</text>
+        </svg>
+        <p class="footer__tagline">Wonder in every corner</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Quick links">
+        <h3 class="footer__heading">Explore</h3>
+        <ul class="reset footer__links">
+          <li><a href="#products" data-nav>Toys</a></li>
+          <li><a href="#locations" data-nav>Stores</a></li>
+          <li><a href="#gallery" data-nav>Gallery</a></li>
+          <li><a href="#contact" data-nav>Our Story</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Our stores">
+        <h3 class="footer__heading">Our Stores</h3>
+        <ul class="reset footer__links">
+          <li><a href="#locations" data-nav>Woodland Hills Mall — Tulsa, OK</a></li>
+          <li><a href="#locations" data-nav>Tulsa Premium Outlets — Jenks, OK</a></li>
+          <li><a href="#locations" data-nav>The Empire Mall — Sioux Falls, SD</a></li>
+          <li><a href="#locations" data-nav>Towne East Square — Wichita, KS</a></li>
+          <li><a href="#locations" data-nav>Grapevine Mills — Grapevine, TX</a></li>
+          <li><a href="#locations" data-nav>Battlefield Mall — Springfield, MO</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; <span id="footer-year">2026</span> What-A-Toy! &mdash; A family-owned toy store. Hours vary by mall.</p>
+    </div>
+  </footer>
+
+  <!-- ===================== LIGHTBOX MOUNT ===================== -->
+  <div id="lightbox" class="lightbox" aria-hidden="true"></div>
+
+  <!-- ===================== PAGE TRANSITION OVERLAY ===================== -->
+  <div id="transition-overlay" class="transition" aria-hidden="true">
+    <div class="transition__panel transition__panel--red"></div>
+    <div class="transition__panel transition__panel--gold"></div>
+    <div class="transition__panel transition__panel--navy"></div>
+  </div>
+
+  <!-- ===================== SCRIPTS (classic UMD globals) ===================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/globe.gl"></script>
+  <script>
+    // Register GSAP plugins on the global timeline before the module runs.
+    if (window.gsap) {
+      var plugins = [];
+      if (window.ScrollTrigger) plugins.push(window.ScrollTrigger);
+      if (window.SplitText) plugins.push(window.SplitText);
+      if (plugins.length) window.gsap.registerPlugin.apply(window.gsap, plugins);
+    }
+    // Lenis UMD sometimes exposes window.Lenis.default
+    if (window.Lenis && window.Lenis.default) window.Lenis = window.Lenis.default;
+  </script>
+
+  <!-- Import map so three.js examples modules (GLTFLoader) can resolve the bare "three" specifier -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module" src="js/main.js?v=42"></script>
+</body>
+</html>

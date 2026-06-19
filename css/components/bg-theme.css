@@ -1,0 +1,176 @@
+/* =========================================================================
+   What-A-Toy! — bg-theme.css
+   Scroll-driven page background "journey": a single fixed layer behind the
+   whole page whose color is tweened by js/bg-scroll.js as each section
+   becomes active. Sections are transparent so the layer shows through.
+
+   Per-section data-bg attribute drives text contrast:
+     data-bg="sun"   -> golden yellow, dark (navy) text  [default look]
+     data-bg="red"   -> warm red,      light (cream) text
+     data-bg="navy"  -> deep navy,      light (cream) text
+
+   Only SECTION-LEVEL text (eyebrow / title / lead / hero / contact copy) is
+   recolored on dark sections. Self-contained surfaces (cards, store panel,
+   gallery items, lightbox) keep their own light backgrounds + dark text.
+   ========================================================================= */
+
+/* The single animated backdrop. Sits behind everything. */
+#bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -3; /* behind hero blobs (-2) and the bear canvas (-1) */
+  background-color: var(--bg-sun);
+  will-change: background-color;
+}
+
+/* Let the backdrop show: page + sections become transparent. */
+body { background: transparent; }
+.section,
+.section.about { background: transparent !important; }
+
+/* The hero keeps its own animated shader canvas; just drop the flat fallback
+   so it blends with the golden backdrop before the canvas paints. */
+.hero { background: transparent; }
+
+/* The globe wrapper's pale disc would look like a spotlight on navy — soften
+   it to a subtle translucent halo so the globe floats on the deep-navy page. */
+[data-bg="navy"] .locations__globe {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 60%,
+      transparent 100%
+    );
+}
+
+/* ---- Dark / red sections: recolor section-level text to cream ---------- */
+[data-bg="red"] .section__title,
+[data-bg="navy"] .section__title,
+[data-bg="red"] .hero__title,
+[data-bg="navy"] .hero__title {
+  color: var(--cream);
+}
+
+[data-bg="red"] .section__eyebrow,
+[data-bg="navy"] .section__eyebrow {
+  color: var(--gold);
+}
+
+[data-bg="red"] .section__lead,
+[data-bg="navy"] .section__lead,
+[data-bg="red"] .intro__lead,
+[data-bg="navy"] .intro__lead,
+[data-bg="red"] .about__lead,
+[data-bg="navy"] .about__lead,
+[data-bg="red"] .contact__lead,
+[data-bg="navy"] .contact__lead,
+[data-bg="red"] .hero__tagline,
+[data-bg="navy"] .hero__tagline {
+  color: rgba(244, 232, 211, 0.92); /* soft cream */
+}
+
+[data-bg="navy"] .locations__hint,
+[data-bg="red"] .locations__hint {
+  color: rgba(244, 232, 211, 0.78);
+}
+
+/* ---- Buttons that sit DIRECTLY on a dark section background -------------
+   (Only the contact CTAs — card buttons like store-detail keep their style.) */
+[data-bg="red"] .contact__actions .btn--primary,
+[data-bg="navy"] .contact__actions .btn--primary {
+  background: var(--cream);
+  color: var(--red);
+  border-color: var(--cream);
+}
+[data-bg="red"] .contact__actions .btn--primary:hover,
+[data-bg="navy"] .contact__actions .btn--primary:hover {
+  background: var(--surface-card);
+  border-color: var(--surface-card);
+}
+[data-bg="red"] .contact__actions .btn--ghost,
+[data-bg="navy"] .contact__actions .btn--ghost {
+  color: var(--cream);
+  border-color: var(--cream);
+}
+[data-bg="red"] .contact__actions .btn--ghost:hover,
+[data-bg="navy"] .contact__actions .btn--ghost:hover {
+  background: rgba(244, 232, 211, 0.14);
+}
+
+/* =========================================================================
+   Uniform full-viewport "pages"
+   Every section fills the viewport so only ONE page shows at a time, which
+   keeps the scrolling background color in sync with the visible content.
+   Scrolling itself stays smooth (Lenis) — no snapping.
+   ========================================================================= */
+html {
+  scroll-padding-top: var(--nav-h);
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* clear the sticky bar so a centered/short page's content isn't hidden */
+  padding-block: calc(var(--nav-h) + var(--space-5)) var(--space-6);
+}
+
+/* On small screens content is naturally tall — don't force a rigid 100vh
+   (it would clip); let pages grow and rely on gentle proximity snapping. */
+@media (max-width: 760px) {
+  .section {
+    min-height: auto;
+    padding-block: calc(var(--nav-h) + var(--space-4)) var(--space-6);
+  }
+}
+
+/* =========================================================================
+   Consistent typography across every page
+   (Same title / eyebrow / lead sizing everywhere — including the per-section
+   lead classes that could otherwise drift.)
+   ========================================================================= */
+.section__title {
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 3rem);
+  line-height: var(--lh-tight);
+}
+
+.section__eyebrow {
+  font-size: var(--fs-sm);
+  letter-spacing: 0.14em;
+}
+
+/* Tighter header rhythm so dense pages (globe, gallery) fit one viewport */
+.section__head {
+  margin-bottom: var(--space-5);
+}
+
+.section__lead,
+.intro__lead,
+.about__lead,
+.contact__lead {
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+}
+
+/* =========================================================================
+   Hero / intro content sides
+   The bears travel to the OPPOSITE side each page, so the copy sits:
+   page 1 (hero) on the LEFT (default), page 2 (intro) on the RIGHT.
+   ========================================================================= */
+#intro .intro__inner {
+  margin-left: auto;
+  margin-right: 0;
+  max-width: 48ch;
+  text-align: left;
+}
+@media (max-width: 760px) {
+  #intro .intro__inner {
+    margin-inline: auto;
+    max-width: none;
+  }
+}
+
+/* Reduced motion: no color tween (js sets the color instantly); nothing to do
+   here since the transition is JS-driven, but keep the layer cheap. */

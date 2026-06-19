@@ -1,0 +1,150 @@
+/* =========================================================================
+   What-A-Toy! — Section framing
+   Shared spacing, section headers (eyebrow + title + lead), and a decorative
+   gold wavy-stripe divider that echoes the logo's golden stripes.
+   Uses ONLY tokens from variables.css — never hardcoded hex.
+   Matches scaffold classes: .section, .section__head, .section__eyebrow,
+   .section__title, .section__lead, .container, .container--narrow.
+   ========================================================================= */
+
+/* ---- Section block: vertical rhythm ---- */
+.section {
+  position: relative;
+  padding-block: var(--space-8);
+}
+
+/* Tighten the gap a touch on small screens */
+@media (max-width: 640px) {
+  .section {
+    padding-block: var(--space-7);
+  }
+}
+
+/* Alternating surface tone for visual cadence (cheerful, not loud).
+   Soft-yellow page bg dominates; some sections sit on a slightly warmer tone. */
+.section.intro,
+.section.about {
+  background: var(--surface-alt);
+}
+
+/* ---- Containers ---- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+/* =========================================================================
+   Section header — eyebrow + Fredoka title + lead paragraph
+   ========================================================================= */
+.section__head {
+  max-width: 60ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-7);
+  text-align: center;
+}
+
+/* Eyebrow: small uppercase kicker in red, sits above the title */
+.section__eyebrow {
+  display: inline-block;
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* Title: the playful Fredoka display face, navy ink */
+.section__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-tight);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* Lead paragraph beneath the title. Covers the per-section lead variants too
+   (about/contact) so every lead shares one size/rhythm; dark-section recolors
+   live in bg-theme.css. */
+.section__lead,
+.about__lead,
+.contact__lead {
+  margin: var(--space-4) auto 0;
+  max-width: 56ch;
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--muted);
+}
+
+/* =========================================================================
+   Decorative gold wavy-stripe divider (CSS only)
+   Echoes the logo's golden-yellow wavy stripes. Add <div class="stripe-divider">
+   or it can sit under a section head; purely ornamental, hidden from AT.
+   ========================================================================= */
+.section__eyebrow::after {
+  /* tiny gold underline accent under every eyebrow (incl. hero/contact) */
+  content: "";
+  display: block;
+  width: 2.2rem;
+  height: 3px;
+  margin: var(--space-2) auto 0;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+}
+
+/* Reusable full-width wavy gold divider built from a repeating SVG-ish wave.
+   Uses layered repeating gradients to suggest the logo's wavy stripes. */
+.stripe-divider {
+  position: relative;
+  height: 22px;
+  margin-block: var(--space-6);
+  border: 0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      var(--gold) 0,
+      var(--gold) 10px,
+      transparent 10px,
+      transparent 22px
+    );
+  -webkit-mask: radial-gradient(
+      circle at 50% -50%,
+      transparent 0 14px,
+      #000 14px
+    )
+    repeat-x 0 0 / 44px 22px;
+          mask: radial-gradient(
+      circle at 50% -50%,
+      transparent 0 14px,
+      #000 14px
+    )
+    repeat-x 0 0 / 44px 22px;
+  opacity: 0.85;
+}
+
+/* A simpler centered wave accent variant */
+.stripe-divider--center {
+  width: clamp(120px, 30%, 260px);
+  margin-inline: auto;
+}
+
+/* =========================================================================
+   Section head left-alignment modifier (for sections that prefer it)
+   ========================================================================= */
+.section__head--start {
+  text-align: left;
+  margin-inline: 0;
+}
+
+.section__head--start .section__eyebrow::after {
+  margin-inline: 0;
+}

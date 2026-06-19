@@ -1,0 +1,15 @@
+# Local test artifacts (Playwright screenshots + MCP output)
+.playwright-mcp/
+/v[0-9]*.jpeg
+/verify-*.jpeg
+merged-final-page.png
+*-screenshot.png
+
+# Redundant or unused assets (kept locally, not shipped)
+assets.zip
+bears.glb
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini

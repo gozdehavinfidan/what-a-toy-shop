@@ -1,0 +1,104 @@
+/* =========================================================================
+   Product cards — extends .card
+   Cream surface, gold top accent, soft "Find it in-store" tag (no buy CTA).
+   Responsive grid: 3 columns -> 1 on small screens.
+   ========================================================================= */
+
+/* ---- Marquee viewport (rendered into #products-grid by products.js) ----
+   A horizontal track of category cards that auto-slides. The viewport clips
+   the wide track and fades it at both edges. */
+.products__grid {
+  margin-top: var(--space-5);
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+          mask: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.products__track {
+  display: flex;
+  width: max-content;
+  /* a little vertical room so card hover-lift + shadow aren't clipped */
+  padding-block: var(--space-3);
+}
+
+/* Each card is a fixed-width slide; trailing margin (not flex gap) keeps the
+   duplicated set perfectly even so the -50% loop is seamless. */
+.products__track > .card {
+  flex: 0 0 clamp(240px, 72vw, 320px);
+  margin-right: var(--space-6);
+}
+
+.products__track--marquee {
+  animation: productsMarquee var(--marquee-duration, 40s) linear infinite;
+}
+/* Pause so the row holds still while you read / reach for a card */
+.products__track--marquee:hover,
+.products__track--marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@keyframes productsMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Reduced motion: no auto-slide — let the user scroll the row by hand. */
+@media (prefers-reduced-motion: reduce) {
+  .products__grid {
+    overflow-x: auto;
+    -webkit-mask: none;
+            mask: none;
+  }
+  .products__track { animation: none; }
+}
+
+/* ---- The product card itself (clickable -> opens category photos) ---- */
+.product-card {
+  /* gentle warm tint distinct from plain white card */
+  background: var(--surface-card);
+  cursor: pointer;
+}
+.product-card:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* Gold accent bar across the top of each card */
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--gold);
+  z-index: 1;
+}
+
+.product-card .card__body {
+  /* leave room for the tag at the bottom, push it down */
+  flex: 1 1 auto;
+}
+
+/* ---- Soft "Find it in-store" tag — informational, NOT a buy button ---- */
+.product-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  margin-top: auto; /* pin to the card bottom so all tags align */
+  padding: 0.4em 0.95em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  color: var(--navy);
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+/* Small location pin glyph before the tag text */
+.product-card__tag::before {
+  content: "\1F4CD"; /* round pushpin emoji as a friendly marker */
+  font-size: 0.95em;
+  line-height: 1;
+}

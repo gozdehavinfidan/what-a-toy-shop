@@ -1,0 +1,277 @@
+/* =========================================================================
+   What-A-Toy! — Navbar
+   Sticky red gradient bar · logo left · centered links · red "Visit Us" CTA
+   · mobile hamburger · active-link highlight · gold stripe accent.
+   Uses design tokens from variables.css — no hardcoded brand hex.
+   ========================================================================= */
+
+/* ---- Sticky shell -------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  min-height: var(--nav-h);
+  /* Frosted warm-cream bar — highly translucent so the colorful sections
+     show through; a strong blur keeps text legible. Rounded bottom corners
+     give it a floating-tab feel. */
+  background: rgba(247, 239, 223, 0.42);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+  backdrop-filter: blur(18px) saturate(1.3);
+  color: var(--navy);
+  box-shadow: var(--shadow-nav);
+  /* Subtle golden-yellow hairline under the bar, echoing the logo stripes */
+  border-bottom: 2px solid rgba(242, 184, 43, 0.5);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: box-shadow var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+
+/* A touch more opaque + deeper shadow once the page has scrolled. */
+.navbar.is-scrolled {
+  background: rgba(247, 239, 223, 0.62);
+  box-shadow: 0 8px 24px rgba(42, 59, 110, 0.18);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  min-height: var(--nav-h);
+}
+
+/* ---- Brand / logo -------------------------------------------------------- */
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.navbar__brand:hover {
+  transform: translateY(-1px);
+}
+
+.navbar__logo {
+  display: block;
+  height: 48px;
+  width: auto;
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Desktop nav cluster ------------------------------------------------- */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-md);
+  line-height: 1;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out);
+}
+
+/* Gold underline accent that grows on hover / active */
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: 4px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--red-dark);
+  background: rgba(42, 59, 110, 0.07);
+}
+
+.navbar__link:hover::after,
+.navbar__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Active link (current section in view) */
+.navbar__link.is-active {
+  color: var(--red-dark);
+}
+
+.navbar__link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ---- CTA --------------------------------------------------------------- */
+/* Inherits .btn / .btn--primary / .btn--sm from buttons.css. On the light
+   frosted bar the red CTA pops nicely — keep it red with cream text. */
+.navbar__cta {
+  flex: 0 0 auto;
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar__cta:hover {
+  background: var(--red-dark);
+  border-color: var(--red-dark);
+  color: #fff;
+}
+
+/* ---- Hamburger toggle (hidden on desktop) -------------------------------- */
+.navbar__toggle {
+  display: none;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: rgba(42, 59, 110, 0.08);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.navbar__toggle:hover {
+  background: rgba(42, 59, 110, 0.16);
+}
+
+.navbar__bar {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+  transition: transform var(--dur-base) var(--ease-out),
+              opacity var(--dur-fast) var(--ease-out);
+}
+
+/* Animate to an "X" when the menu is open */
+.navbar__toggle[aria-expanded="true"] .navbar__bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.navbar__toggle[aria-expanded="true"] .navbar__bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar__toggle[aria-expanded="true"] .navbar__bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ---- Focus-visible states ------------------------------------------------ */
+.navbar__brand:focus-visible,
+.navbar__link:focus-visible,
+.navbar__toggle:focus-visible,
+.navbar__cta:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* =========================================================================
+   Mobile layout (< 860px): hamburger reveals a slide-down panel
+   ========================================================================= */
+@media (max-width: 860px) {
+  .navbar__toggle {
+    display: inline-flex;
+  }
+
+  .navbar__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background: rgba(247, 239, 223, 0.96);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 2px solid rgba(242, 184, 43, 0.55);
+    box-shadow: var(--shadow-lg);
+
+    /* Collapsed by default — slide/fade in when .is-open is set by nav.js */
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform var(--dur-base) var(--ease-out),
+                opacity var(--dur-base) var(--ease-out),
+                visibility 0s linear var(--dur-base);
+  }
+
+  .navbar__nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform var(--dur-base) var(--ease-out),
+                opacity var(--dur-base) var(--ease-out),
+                visibility 0s;
+  }
+
+  .navbar__links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+
+  .navbar__link {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-lg);
+  }
+
+  /* Underline accent doesn't read well stacked — use a left bar instead */
+  .navbar__link::after {
+    left: var(--space-4);
+    right: auto;
+    width: 24px;
+  }
+
+  .navbar__cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ---- Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar__brand,
+  .navbar__link,
+  .navbar__link::after,
+  .navbar__toggle,
+  .navbar__bar,
+  .navbar__cta,
+  .navbar__nav {
+    transition: none !important;
+  }
+}

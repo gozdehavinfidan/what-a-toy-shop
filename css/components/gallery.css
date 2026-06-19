@@ -1,0 +1,139 @@
+/* =========================================================================
+   What-A-Toy! — Gallery
+   Filter chips + responsive masonry-ish photo grid.
+   Tokens only; cheerful cream/yellow surfaces with red active state.
+   ========================================================================= */
+
+/* The global .section rule pads the top extra (nav-h + space-5) to clear the
+   sticky bar, which biases content downward. Because our navbar is translucent
+   (the golden bg shows through it), that reads as "not centered — gap on top."
+   Use symmetric vertical padding so the preview centers in the FULL viewport,
+   while keeping a whole nav-h of clearance so nothing hides under the bar. */
+#gallery {
+  padding-block: var(--nav-h);
+}
+
+/* ---- Filter chips row ---- */
+.gallery__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.gallery__chip {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  color: var(--navy);
+  background: var(--surface-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.gallery__chip:hover {
+  border-color: var(--red);
+  color: var(--red);
+  transform: translateY(-2px);
+}
+
+.gallery__chip:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.gallery__chip[aria-pressed="true"] {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--on-red);
+  box-shadow: var(--shadow-red);
+}
+
+/* ---- Preview grid: a tidy row of large uniform thumbnails ---- */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 880px) {
+  .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .gallery__grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Individual photo tile ----
+   Cream "sticker frame" matching the hero collage: a thick cream border + soft
+   shadow so every photo on the site shares one framed look. */
+.gallery__item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 5px solid var(--surface-card);
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.gallery__item:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery__item:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.gallery__img {
+  display: block;
+  width: 100%;
+  /* Big, bold square thumbs — large and legible while keeping the preview to
+     one clean row that still fits a viewport. */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: inherit;
+  background: var(--surface-alt);
+}
+
+/* ---- "See all N photos" button: centered, below the preview row ---- */
+.gallery__more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-5);
+}
+
+/* ---- Empty / loading message ---- */
+.gallery__empty {
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--font-body);
+  padding: var(--space-6) 0;
+}
+
+/* ---- Reduced motion: kill hover transforms ---- */
+@media (prefers-reduced-motion: reduce) {
+  .gallery__chip,
+  .gallery__item {
+    transition: none;
+  }
+  .gallery__chip:hover,
+  .gallery__item:hover {
+    transform: none;
+  }
+}

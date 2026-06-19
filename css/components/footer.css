@@ -1,0 +1,112 @@
+/* =========================================================================
+   What-A-Toy! — Footer
+   Cream footer surface: brand (logo + tagline), quick links, the 5 store
+   names, and fine print. Tokens only — no hardcoded hex.
+   Matches scaffold: .footer, .footer__inner, .footer__brand, .footer__logo,
+   .footer__tagline, .footer__col, .footer__heading, .footer__links,
+   .footer__bottom.
+   ========================================================================= */
+
+.footer {
+  position: relative;
+  background: var(--surface);            /* cream */
+  color: var(--ink);
+  border-top: 3px solid var(--gold);     /* gold stripe nod to the logo */
+}
+
+/* Top region: brand + two link columns */
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.3fr;
+  gap: var(--space-7);
+  align-items: start;
+  padding-block: var(--space-7);
+}
+
+@media (max-width: 820px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* ---- Brand block ---- */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__logo {
+  width: 140px;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.footer__tagline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  color: var(--red);
+}
+
+/* ---- Link columns ---- */
+.footer__heading {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--fs-base);
+  line-height: var(--lh-snug);
+}
+
+/* Store names are plain <li> text (no links) — keep them muted */
+.footer__links li {
+  color: var(--muted);
+}
+
+/* Quick links are anchors — give them interactive treatment */
+.footer__links a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.footer__links a:hover,
+.footer__links a:focus-visible {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- Fine print ---- */
+.footer__bottom {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer__bottom p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}

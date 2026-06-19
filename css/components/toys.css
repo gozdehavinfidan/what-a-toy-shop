@@ -1,0 +1,247 @@
+/* =========================================================================
+   What-A-Toy! — toys.css
+   Playful CSS animations beside the "Our Story" copy:
+     • a wind-up CAT drinking milk (adapted from a CodePen, recolored)
+     • a little TRAIN chugging across the bottom of the section
+   All pure CSS; recolored to the brand palette. Reduced-motion safe.
+   ========================================================================= */
+
+/* About becomes two columns: copy + the cat stage; the train rides the bottom */
+.about .about__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: var(--space-7);
+  align-items: center;
+  max-width: var(--container);
+}
+@media (max-width: 820px) {
+  .about .about__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+.about__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spacing between the title and the body copy (match the other sections) */
+.about__text .section__title { margin-bottom: var(--space-5); }
+.about__text .about__lead { margin-top: 0; }
+.about__text .about__lead + .about__lead { margin-top: var(--space-3); }
+
+/* Reserve room at the bottom of the section for the train band */
+.about { padding-bottom: 220px; }
+@media (max-width: 820px) { .about { padding-bottom: 180px; } }
+
+/* =========================================================================
+   Wind-up cat (adapted + recolored)
+   ========================================================================= */
+.cat {
+  position: relative;
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  font-size: 16px;            /* ears are sized in em */
+  transform: scale(1.15);     /* a touch bigger */
+}
+
+.cat .shadow {
+  position: absolute;
+  left: 50%; top: 80%;
+  transform: translate(-50%, -50%);
+  background: #000; opacity: 0.12;
+  height: 56px; width: 150px; border-radius: 50%;
+}
+
+.cat .bowl { position: relative; top: 88%; }
+.cat .bowl .milk {
+  left: 50%; transform: translate(-50%, -50%); position: absolute;
+  height: 20px; border-radius: 60%; width: 60px; background: #fff;
+}
+.cat .bowl .rim {
+  left: 50%; transform: translate(-50%, -50%); position: absolute;
+  height: 30px; border-radius: 50%; width: 80px; background: var(--navy);
+}
+.cat .bowl .lower {
+  left: 50%; transform: translate(-50%, -50%); position: absolute;
+  height: 26px; top: 13px; border-radius: 0 0 80% 80%; width: 80px; background: var(--navy);
+}
+
+.cat .head {
+  position: relative; transform: translate(-50%, -50%);
+  border-bottom: 2px solid #1c2547; border-top: 2px solid transparent;
+  top: 20%; left: 50%; background: #E6CF9C; height: 60px; width: 60px; border-radius: 50%;
+  animation: cat-drink 8s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+}
+
+.cat .ear { position: absolute; background-color: #E6CF9C; text-align: left; }
+.cat .ear.left { left: 5px; transform: rotate(12deg) skewX(-30deg) scale(1, 0.9); }
+.cat .ear.right { right: -1px; top: 5px; transform: rotate(100deg) skewX(-30deg) scale(1, 0.866); }
+.cat .ear:before, .cat .ear:after { content: ""; position: absolute; background-color: inherit; }
+.cat .ear, .cat .ear:before, .cat .ear:after { width: 1em; height: 1em; border-top-right-radius: 30%; }
+.cat .ear { transform: rotate(100deg) skewX(-30deg) scale(1, 0.866); }
+.cat .ear:before { transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707) translate(0, -50%); }
+.cat .ear:after { transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%); }
+
+.cat .tail {
+  position: absolute; top: 0%; transform-origin: center bottom;
+  left: calc(50% - 8px); height: 120px; width: 15px; background: #E6CF9C;
+  border-radius: 40px; transform: rotateZ(45deg);
+  animation: cat-wag infinite 1.5s ease-in-out alternate;
+}
+
+.cat .body {
+  transform: translate(-50%, -50%); position: absolute; transform-origin: center center;
+  top: 50%; left: 50%; background: #F4E8D3; height: 100px; width: 70px; border-radius: 100px;
+}
+
+.cat .leg {
+  transform: translate(-50%, -50%); position: absolute; transform-origin: center center;
+  top: 55%; left: 34%; background: #F4E8D3; height: 60px; width: 25px; border-radius: 100px;
+}
+.cat .leg.right { left: unset; right: 22%; }
+.cat .leg.right.forward { top: 68%; left: unset; right: 34%; width: 20px; }
+.cat .leg.forward { top: 68%; left: 42%; width: 20px; }
+
+.cat .paw {
+  transform: translate(-50%, -50%) rotate(60deg); position: absolute; transform-origin: center center;
+  top: 70%; left: 30%; background: #F4E8D3; height: 30px; width: 20px; border-radius: 100px;
+}
+.cat .paw.right { left: unset; right: 22%; transform: translate(-50%, -50%) rotate(-60deg); }
+.cat .paw.right.forward { top: 80%; left: unset; right: 32%; width: 20px; }
+.cat .paw.forward { top: 80%; left: 40%; width: 20px; }
+
+.cat .tongue {
+  transform-origin: top center; opacity: 0; left: 45%; top: 80%; position: absolute;
+  height: 15px; width: 10px; background: var(--red); border-radius: 40px;
+  animation: cat-lick 8s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+}
+
+.cat .key {
+  position: absolute; left: 20px; top: 100px; display: flex; flex-direction: row;
+  justify-content: center; align-items: center; animation: cat-rotate infinite 1.5s linear;
+}
+.cat .key .blade { width: 30px; height: 10px; background: #9aa0ad; }
+.cat .key .bow { position: relative; height: 10px; width: 10px; background: #9aa0ad; }
+.cat .key .bow .upper { top: -80%; left: -30%; position: absolute; border-radius: 50%; width: 15px; height: 15px; background: #9aa0ad; }
+.cat .key .bow .hole { margin-top: 3px; margin-left: 3px; border-radius: 50%; width: 8px; height: 8px; background: var(--red); }
+.cat .key .bow .lower { left: -30%; top: 30%; position: absolute; border-radius: 50%; width: 15px; height: 15px; background: #9aa0ad; }
+
+@keyframes cat-drink {
+  0%   { border-top: 2px solid transparent; }
+  30%  { transform: translate(-50%, 50%) rotate3d(1, 0, 0, 30deg); border-top: 2px solid #1c2547; top: 40%; border-bottom: 2px solid transparent; }
+  40%  { top: 40%; border-bottom: 0 solid transparent; }
+  70%  { border-top: 2px solid transparent; top: 20%; }
+  100% { top: 20%; }
+}
+@keyframes cat-rotate { from { transform: rotateX(0deg); } to { transform: rotateX(359deg); } }
+@keyframes cat-lick {
+  0%   { opacity: 0; }
+  29%  { opacity: 0; }
+  30%  { opacity: 1; transform: rotate(-95deg); }
+  40%  { opacity: 1; transform: rotate(90deg); }
+  41%  { opacity: 0; }
+}
+@keyframes cat-wag { from { transform: rotateZ(45deg); } to { transform: rotateZ(70deg); } }
+
+/* =========================================================================
+   Train (adapted + recolored) — chugs across the bottom of the section
+   ========================================================================= */
+.about__train {
+  position: absolute;
+  left: 0; right: 0; bottom: 18px;
+  height: 200px;
+  overflow: hidden;          /* clip the train as it enters/leaves */
+  pointer-events: none;
+}
+
+.about__train .box-canvas {
+  position: absolute;
+  display: flex;
+  top: 0;
+  width: 630px;
+  height: 200px;
+  /* a soft cream track line */
+  background-image: linear-gradient(
+    transparent, transparent 130px,
+    rgba(244, 232, 211, 0.55) 130px, rgba(244, 232, 211, 0.55) 140px,
+    transparent 140px);
+  background-size: 550px 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: space-between;
+  animation: train-move 13s infinite linear;
+}
+
+@keyframes train-move {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-630px); }
+}
+
+.about__train .front-car { position: relative; width: 200px; height: 200px; }
+
+.about__train .cabin {
+  position: absolute; width: 100px; height: 150px; background: var(--navy); right: 0;
+}
+.about__train .cabin::before {
+  content: ''; position: absolute; width: 120px; height: 10px; background: var(--gold); left: -20px;
+}
+.about__train .cabin::after {
+  content: ''; position: absolute; width: 50px; height: 50px;
+  background: linear-gradient(-45deg, var(--cream), 60%, #f6c945);
+  left: 50%; transform: translateX(-50%); top: 30px;
+}
+
+.about__train .front {
+  width: 100px; height: 75px; position: absolute; background: #1c1f2b;
+  top: 75px; border-radius: 40% 0 0 20% / 50%;
+}
+.about__train .front::before {
+  content: ''; width: 40px; height: 40px; background: var(--gold); position: absolute;
+  top: -40px; left: 25px; clip-path: polygon(20% 100%, 80% 100%, 100% 0, 0 0);
+}
+
+.about__train .smoke {
+  position: absolute; left: 10px; top: -20px; width: 80px; height: 50px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6); animation: train-smoke1 1.5s infinite;
+}
+.about__train .smoke::before {
+  content: ''; position: absolute; top: -40px; right: 0; width: 50px; height: 30px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4); animation: train-smoke2 1.5s infinite;
+}
+.about__train .smoke::after {
+  content: ''; position: absolute; top: -68px; right: 0; width: 35px; height: 20px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3); animation: train-smoke3 1.5s infinite;
+}
+@keyframes train-smoke1 { 0% { background: transparent; } 10% { background: rgba(255,255,255,0.6); } }
+@keyframes train-smoke2 { 0% { background: transparent; } 40% { background: rgba(255,255,255,0.4); } }
+@keyframes train-smoke3 { 0% { background: transparent; } 80% { background: rgba(255,255,255,0.3); } }
+
+.about__train .wheels {
+  position: absolute; width: 160px; bottom: 10px; height: 50px; left: 50%;
+  transform: translateX(-50%); display: flex; justify-content: space-between;
+}
+.about__train .wheel {
+  position: relative; width: 15px; height: 15px; background: var(--navy);
+  border: 22px solid var(--cream); border-radius: 50%;
+  border-right-color: var(--gold); border-left-color: var(--gold);
+  animation: train-spin 0.7s infinite linear;
+}
+@keyframes train-spin { 0% { transform: none; } 100% { transform: rotate(-360deg); } }
+
+.about__train .trailer { position: relative; width: 200px; height: 200px; }
+.about__train .skip { position: absolute; width: 200px; height: 10px; background: var(--gold); top: 70px; }
+.about__train .skip::before {
+  content: ''; position: absolute; top: 10px; width: 200px; height: 70px; background: var(--navy);
+  clip-path: polygon(20% 100%, 80% 100%, 100% 0, 0 0);
+}
+.about__train .two .skip::before { background: #1c1f2b; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat .head, .cat .tail, .cat .tongue, .cat .key,
+  .about__train .box-canvas, .about__train .wheel, .about__train .smoke,
+  .about__train .smoke::before, .about__train .smoke::after { animation: none !important; }
+}

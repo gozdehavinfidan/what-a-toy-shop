@@ -1,0 +1,66 @@
+/* =========================================================================
+   What-A-Toy! — Page-dot rail
+   A fixed vertical rail of dots (one per section) on the right edge. Built by
+   js/page-nav.js on wide/pointer screens. A translucent navy "glass" pill
+   keeps the cream/gold dots legible across the sun -> red -> navy scroll
+   journey. Hidden on mobile (natural scroll there). Reduced-motion safe.
+   ========================================================================= */
+
+.page-dots {
+  position: fixed;
+  right: clamp(8px, 1.4vw, 20px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: var(--z-nav);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--radius-pill);
+  background: rgba(var(--navy-rgb), 0.22);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(var(--white-rgb), 0.18);
+}
+
+.page-dots__dot {
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  border: 2px solid rgba(var(--cream-rgb), 0.65);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.page-dots__dot:hover {
+  transform: scale(1.25);
+  border-color: var(--cream);
+}
+
+.page-dots__dot:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.page-dots__dot.is-active {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.15);
+}
+
+/* Mobile: natural stacked scroll, no rail. */
+@media (max-width: 900px) {
+  .page-dots { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-dots__dot,
+  .page-dots__dot:hover,
+  .page-dots__dot.is-active {
+    transition: none;
+  }
+}

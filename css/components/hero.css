@@ -1,0 +1,511 @@
+/* =========================================================================
+   What-A-Toy! — Hero section (toy-store storefront redesign)
+   Two columns: a copy column (eyebrow pill, big Fredoka headline, tagline,
+   CTA row, category chips) and a playful collage of REAL store photos
+   (tilted, floating "sticker" frames). A confetti decoration layer (blobs,
+   dots, stars, plus-signs) drifts behind everything, clipped to the hero so
+   it scrolls away naturally. No three.js. Reduced-motion safe.
+   Uses only tokens from css/variables.css.
+   ========================================================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;            /* mobile-safe viewport unit where supported */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg-yellow);  /* fallback before #bg-layer paints */
+  padding-block: calc(var(--nav-h) + var(--space-5)) var(--space-7);
+}
+
+/* ===================== Decoration layer ===================== */
+.hero__decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ---- Soft morphing colour blobs (warmth behind the content) ---- */
+.hero__blob {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  filter: blur(70px);
+  opacity: 0.5;
+  border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%;
+  will-change: transform, border-radius;
+}
+.hero__blob--a {
+  left: -14%; top: -18%;
+  background: radial-gradient(circle at 50% 50%, var(--gold), transparent 68%);
+  animation: heroBlobA 16s ease-in-out infinite alternate;
+}
+.hero__blob--b {
+  right: -16%; bottom: -16%;
+  opacity: 0.42;
+  background: radial-gradient(circle at 50% 50%, #F8D36A, transparent 70%);
+  animation: heroBlobB 21s ease-in-out infinite alternate;
+}
+
+@keyframes heroBlobA {
+  from { transform: translate(0, 0) scale(1); border-radius: 42% 58% 60% 40% / 45% 45% 55% 55%; }
+  to   { transform: translate(12%, 10%) scale(1.2); border-radius: 60% 40% 45% 55% / 55% 55% 45% 45%; }
+}
+@keyframes heroBlobB {
+  from { transform: translate(0, 0) scale(1.05); border-radius: 55% 45% 50% 50% / 50% 60% 40% 50%; }
+  to   { transform: translate(-14%, -10%) scale(0.92); border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%; }
+}
+
+/* ---- Confetti: dots, stars, plus-signs scattered + drifting ---- */
+.hero__dot,
+.hero__star,
+.hero__plus {
+  position: absolute;
+  will-change: transform;
+}
+.hero__dot {
+  border-radius: 50%;
+  opacity: 0.85;
+}
+.hero__dot--1 { left: 8%;  top: 24%; width: 18px; height: 18px; background: var(--red);  animation: heroDrift 9s ease-in-out infinite; }
+.hero__dot--2 { left: 46%; top: 14%; width: 12px; height: 12px; background: #36C6B4;     animation: heroDrift 7s ease-in-out infinite 0.6s; }
+.hero__dot--3 { right: 8%; top: 30%; width: 22px; height: 22px; background: #5AA9E6;     animation: heroDrift 11s ease-in-out infinite 0.3s; }
+.hero__dot--4 { left: 30%; bottom: 14%; width: 14px; height: 14px; background: #B07CE0;  animation: heroDrift 8s ease-in-out infinite 1s; }
+
+.hero__star {
+  color: var(--gold);
+  font-size: 1.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 2px rgba(42, 59, 110, 0.15));
+}
+.hero__star--1 { left: 16%; top: 12%; font-size: 1.9rem; animation: heroSpin 14s linear infinite; }
+.hero__star--2 { right: 14%; bottom: 20%; animation: heroSpin 10s linear infinite reverse; }
+.hero__star--3 { left: 4%;  bottom: 30%; font-size: 1.1rem; color: var(--red); animation: heroSpin 12s linear infinite; }
+
+.hero__plus {
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  opacity: 0.5;
+}
+.hero__plus--1 { right: 24%; top: 16%; animation: heroDrift 10s ease-in-out infinite 0.4s; }
+.hero__plus--2 { left: 40%; bottom: 22%; font-size: 1.2rem; animation: heroDrift 9s ease-in-out infinite 0.9s; }
+
+@keyframes heroDrift {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50%      { transform: translateY(-16px) translateX(6px); }
+}
+@keyframes heroSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ===================== Grid: copy | showcase ===================== */
+.hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  align-items: center;
+  gap: clamp(var(--space-6), 5vw, var(--space-8));
+  width: 100%;
+}
+
+/* ===================== Copy column ===================== */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+/* ---- Eyebrow pill ---- */
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0.5em 1em;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.72);
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.hero__eyebrow-star {
+  color: var(--gold);
+  font-size: 1em;
+  animation: heroSpin 8s linear infinite;
+}
+
+/* ---- Headline (#hero-title) ---- */
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  /* Smaller than the global fs-3xl so the tall 3-word headline + tagline +
+     chips all clear a short laptop viewport without overflowing the fold. */
+  font-size: clamp(2.6rem, 1.5rem + 3.4vw, 4.4rem);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--red);
+  text-shadow: var(--text-shadow-display);
+}
+
+/* SplitText wraps each char in a span; keep them inline-block so the
+   per-letter elastic transform (text-effect.js) renders correctly. */
+.hero__title .char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ---- Tagline ---- */
+.hero__tagline {
+  margin: 0;
+  max-width: 52ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--ink);
+}
+
+/* ---- CTA row ---- */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ---- Category chips ---- */
+.hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+.hero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.45em 0.95em;
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--navy);
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out);
+}
+.hero__chip:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.hero__chip-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--dot, var(--red));
+}
+
+/* ===================== Photo collage ===================== */
+.hero__showcase {
+  position: relative;
+  width: 100%;
+  /* Bigger collage, and it scales up with the viewport so it never looks small
+     against the large copy on big monitors. */
+  max-width: clamp(480px, 44vw, 760px);
+  aspect-ratio: 1 / 1;
+  justify-self: center;
+}
+
+.hero__photo {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 7px solid var(--surface-card);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-lg);
+  /* entrance: a gentle fade + scale-up (individual `scale`/`opacity` props so
+     they don't fight the transform-based float animation) */
+  opacity: 0;
+  scale: 0.84;
+  animation-name: heroPop;
+  animation-duration: 0.7s;
+  animation-timing-function: var(--ease-bounce);
+  animation-fill-mode: forwards;
+}
+.hero__photo img {
+  position: absolute;        /* two stacked layers cross-fade (hero-motion.js) */
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Cross-fade transition between the two photo layers */
+.hero__photo-layer {
+  transition: opacity 0.8s var(--ease-out);
+}
+
+/* Main anchor — the bright store-aisle interior (portrait) */
+.hero__photo--main {
+  width: 62%;
+  aspect-ratio: 3 / 4;
+  top: 9%;
+  left: 19%;
+  z-index: 2;
+  animation-delay: 0.05s;
+  /* float baked WITH the rotation so the tilt is preserved while bobbing */
+  --rot: -2deg;
+}
+/* Plush — top-left, overlapping the anchor */
+.hero__photo--plush {
+  width: 44%;
+  aspect-ratio: 4 / 3;
+  top: -1%;
+  left: -3%;
+  z-index: 3;
+  animation-delay: 0.2s;
+  --rot: 4deg;
+}
+/* Ride-on — bottom-right, overlapping the anchor */
+.hero__photo--ride {
+  width: 47%;
+  aspect-ratio: 4 / 3;
+  bottom: 3%;
+  right: -5%;
+  z-index: 3;
+  animation-delay: 0.35s;
+  --rot: -5deg;
+}
+
+/* After the pop settles, hand off to a continuous float (transform-based,
+   carrying the resting tilt). Staggered so the cards never bob in unison. */
+.hero__photo--main  { animation: heroPop 0.7s var(--ease-bounce) 0.05s forwards, heroFloat 7s ease-in-out 0.9s infinite; }
+.hero__photo--plush { animation: heroPop 0.7s var(--ease-bounce) 0.2s forwards, heroFloat 6s ease-in-out 1.1s infinite; }
+.hero__photo--ride  { animation: heroPop 0.7s var(--ease-bounce) 0.35s forwards, heroFloat 8s ease-in-out 1.3s infinite; }
+
+@keyframes heroPop {
+  from { opacity: 0; scale: 0.84; }
+  to   { opacity: 1; scale: 1; }
+}
+@keyframes heroFloat {
+  0%, 100% { transform: rotate(var(--rot)) translateY(0); }
+  50%      { transform: rotate(var(--rot)) translateY(-12px); }
+}
+
+/* ---- Spinning "Come play!" sticker badge ---- */
+.hero__badge {
+  position: absolute;
+  z-index: 4;
+  bottom: 4%;
+  left: -4%;
+  width: clamp(86px, 11vw, 118px);
+  height: clamp(86px, 11vw, 118px);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--navy);
+  background:
+    repeating-conic-gradient(var(--gold) 0deg 18deg, #FFD86B 18deg 36deg);
+  border: 4px solid var(--surface-card);
+  box-shadow: var(--shadow-md);
+  animation: heroBadgeWobble 5s ease-in-out infinite;
+}
+.hero__badge::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px dashed rgba(42, 59, 110, 0.5);
+}
+.hero__badge-text {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  line-height: 1.05;
+  text-align: center;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+@keyframes heroBadgeWobble {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(4deg); }
+}
+
+/* ===================== Mouse parallax (depth) =====================
+   hero-motion.js sets --px / --py (-1..1) on .hero as the cursor moves;
+   each layer shifts by a depth-varied amount. Defaults to 0 (no shift) on
+   touch / reduced-motion since the script never updates the vars there. */
+.hero { --px: 0; --py: 0; }
+
+.hero__decor {
+  translate: calc(var(--px) * -12px) calc(var(--py) * -12px);
+  transition: translate 0.3s var(--ease-out);
+}
+.hero__showcase { transition: translate 0.25s var(--ease-out); }
+.hero__photo { transition: translate 0.25s var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
+.hero__photo--main  { translate: calc(var(--px) * 9px)  calc(var(--py) * 9px); }
+.hero__photo--plush { translate: calc(var(--px) * 22px) calc(var(--py) * 18px); }
+.hero__photo--ride  { translate: calc(var(--px) * 17px) calc(var(--py) * 15px); }
+.hero__badge {
+  translate: calc(var(--px) * 26px) calc(var(--py) * 22px);
+  transition: translate 0.25s var(--ease-out);
+}
+
+/* ===================== Rotating headline word ===================== */
+.hero__rotator { display: inline-block; }
+.hero__rotator-word {
+  display: inline-block;
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+.hero__rotator-word.is-swapping {
+  opacity: 0;
+  transform: translateY(-0.4em);
+}
+
+/* ===================== Extra decoration shapes ===================== */
+.hero__dot--5 { right: 30%; top: 60%; width: 16px; height: 16px; background: var(--gold);  animation: heroDrift 10s ease-in-out infinite 0.5s; }
+.hero__dot--6 { left: 60%; top: 9%;  width: 13px; height: 13px; background: #FF7A59;        animation: heroDrift 8.5s ease-in-out infinite 0.2s; }
+
+.hero__star--4 { right: 37%; top: 72%; font-size: 1.5rem; color: var(--gold); animation: heroSpin 13s linear infinite reverse; }
+
+.hero__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 4px solid;
+  opacity: 0.5;
+  will-change: transform;
+}
+.hero__ring--1 { left: 5%;  top: 66%; width: 46px; height: 46px; border-color: var(--red);  animation: heroDrift 12s ease-in-out infinite 0.7s; }
+.hero__ring--2 { right: 5%; top: 14%; width: 30px; height: 30px; border-color: var(--navy); opacity: 0.3; animation: heroDrift 9s ease-in-out infinite 0.3s; }
+
+.hero__tri {
+  position: absolute;
+  width: 0; height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 20px solid var(--gold);
+  opacity: 0.7;
+  will-change: transform;
+}
+.hero__tri--1 { left: 52%; top: 76%; animation: heroSpin 16s linear infinite; }
+.hero__tri--2 { right: 22%; top: 82%; border-bottom-color: #36C6B4; opacity: 0.6; animation: heroSpin 14s linear infinite reverse; }
+
+/* ===================== Scroll hint ===================== */
+.hero__scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-5);
+  transform: translateX(-50%);
+  z-index: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.hero__scroll-hint:hover,
+.hero__scroll-hint:focus-visible { color: var(--red); }
+
+.hero__scroll-arrow {
+  font-size: 1.4rem;
+  line-height: 1;
+  animation: hero-bob 1.8s var(--ease-in-out) infinite;
+}
+@keyframes hero-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.85; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+
+/* On short viewports the copy + chips fill the fold; the hint would clip, so
+   drop it (the chips already invite exploration). */
+@media (max-height: 760px) {
+  .hero__scroll-hint { display: none; }
+}
+
+/* ===================== Responsive ===================== */
+/* Stack: copy on top (centered), collage below. */
+@media (max-width: 880px) {
+  .hero {
+    align-items: flex-start;
+    padding-block: calc(var(--nav-h) + var(--space-6)) var(--space-8);
+  }
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    justify-items: center;
+  }
+  .hero__content {
+    align-items: center;
+    text-align: center;
+    order: 1;
+  }
+  .hero__tagline { margin-inline: auto; }
+  .hero__actions,
+  .hero__chips { justify-content: center; }
+  .hero__showcase {
+    order: 2;
+    max-width: min(88vw, 500px);
+  }
+}
+
+@media (max-width: 460px) {
+  .hero__actions { width: 100%; flex-direction: column; }
+  .hero__actions .btn { width: 100%; }
+  /* Trim the busiest floater so the collage stays clean on tiny screens */
+  .hero__photo--ride { display: none; }
+  .hero__photo--main { width: 70%; left: 15%; }
+  .hero__photo--plush { width: 50%; }
+}
+
+/* ===================== Reduced motion ===================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero__blob,
+  .hero__dot,
+  .hero__star,
+  .hero__plus,
+  .hero__ring,
+  .hero__tri,
+  .hero__eyebrow-star,
+  .hero__scroll-arrow,
+  .hero__badge { animation: none; }
+
+  .hero__rotator-word { transition: none; }
+
+  .hero__title .char { transform: none !important; }
+
+  /* Show the collage immediately at its resting tilt — no pop, no float */
+  .hero__photo {
+    opacity: 1;
+    scale: 1;
+    animation: none;
+    transform: rotate(var(--rot));
+  }
+}

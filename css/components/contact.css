@@ -1,0 +1,136 @@
+/* =========================================================================
+   What-A-Toy! — contact.css
+   The closing "come visit" invitation. Deep-navy page (data-bg="navy") with
+   roomy vertical rhythm so the short message breathes, plus a playful drop of
+   colorful balls that fall from the top, bounce a few times, then settle on
+   the floor of the section as confetti-like decoration.
+   ========================================================================= */
+
+.contact {
+  position: relative;
+  overflow: hidden; /* clip balls that start above / overshoot the edges */
+}
+
+/* ---- Card content: generous gaps so each line reads as its own beat ---- */
+.contact__card {
+  position: relative;
+  z-index: 1; /* sit above the falling balls */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+}
+
+.contact__card .section__eyebrow,
+.contact__card .section__title {
+  margin: 0; /* gap on the flex parent owns the spacing now */
+}
+
+.contact__lead {
+  margin: 0;
+  max-width: 48ch;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3); /* a touch extra air before the buttons */
+}
+
+/* =========================================================================
+   Falling colorful balls
+   ========================================================================= */
+.contact__balls {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.contact__ball {
+  position: absolute;
+  left: var(--x, 50%);
+  bottom: var(--floor, 6%);
+  width: var(--s, 32px);
+  height: var(--s, 32px);
+  border-radius: 50%;
+  /* glossy toy-ball look: soft highlight + inner shading */
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 42%),
+    var(--c, var(--gold));
+  box-shadow:
+    inset -3px -4px 8px rgba(0, 0, 0, 0.18),
+    0 8px 16px rgba(0, 0, 0, 0.28);
+  /* start well above the section, invisible, until the drop is triggered */
+  transform: translateY(-110vh);
+  opacity: 0;
+}
+
+/* Triggered by js/contact-balls.js when the section scrolls into view. */
+.contact.is-dropping .contact__ball {
+  animation: ball-drop 2.4s var(--d, 0ms) forwards;
+}
+
+/* Damped gravity bounce: accelerate into each impact (ease-in), decelerate
+   out of each rebound (ease-out), with the rebound height decaying each time
+   until the ball comes to rest at translateY(0) (its --floor offset). */
+@keyframes ball-drop {
+  0% {
+    transform: translateY(-110vh);
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 0.55);
+  }
+  6% {
+    opacity: 1;
+  }
+  34% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.35, 1);
+  }
+  50% {
+    transform: translateY(-24vh);
+    animation-timing-function: cubic-bezier(0.45, 0, 1, 0.5);
+  }
+  64% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.35, 1);
+  }
+  76% {
+    transform: translateY(-10vh);
+    animation-timing-function: cubic-bezier(0.45, 0, 1, 0.5);
+  }
+  86% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.35, 1);
+  }
+  93% {
+    transform: translateY(-3.5vh);
+    animation-timing-function: cubic-bezier(0.45, 0, 1, 0.5);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Reduced motion: skip the fall — just rest the balls on the floor. */
+@media (prefers-reduced-motion: reduce) {
+  .contact__ball {
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* On small/short screens the bounce heights (vh) are fine, but shrink balls a
+   touch so they don't crowd the message. */
+@media (max-width: 600px) {
+  .contact__ball {
+    width: calc(var(--s, 32px) * 0.8);
+    height: calc(var(--s, 32px) * 0.8);
+  }
+}

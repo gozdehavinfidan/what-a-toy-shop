@@ -1,0 +1,114 @@
+/* =========================================================================
+   What-A-Toy! — Animations
+   Keyframes + utility classes for the hero scroll-hint, hover floats, and a
+   gentle gold stripe shimmer. Every motion is gated behind
+   prefers-reduced-motion: reduce.  Tokens only.
+   ========================================================================= */
+
+/* =========================================================================
+   Keyframes
+   ========================================================================= */
+
+/* Soft up/down nudge for the scroll-hint arrow */
+@keyframes wat-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+/* Gentle floating idle motion for cards / decorative bits */
+@keyframes wat-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+/* Shimmer sweep across a gold stripe (background-position drift) */
+@keyframes wat-shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Fade + slide-up — JS-driven reveals use GSAP, but this is a CSS fallback */
+@keyframes wat-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================================
+   Reveal baseline
+   .reveal elements start hidden; reveals.js (GSAP) animates them in.
+   The .is-visible class is the JS/CSS fallback "shown" state.
+   ========================================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================================
+   Utility motion classes
+   ========================================================================= */
+
+/* Scroll-hint at the bottom of the hero — its arrow gently bobs */
+.hero__scroll-arrow {
+  display: inline-block;
+  animation: wat-bob 1.8s var(--ease-in-out) infinite;
+}
+
+/* Apply a slow idle float to any element */
+.anim-float {
+  animation: wat-float 4s var(--ease-in-out) infinite;
+}
+
+/* Hover float: lift on hover (interactive cards, tiles) */
+.anim-hover-float {
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+.anim-hover-float:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Gold stripe shimmer — for decorative gold accents that should glint */
+.anim-stripe-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    var(--gold) 0%,
+    var(--cream) 25%,
+    var(--gold) 50%,
+    var(--cream) 75%,
+    var(--gold) 100%
+  );
+  background-size: 200% 100%;
+  animation: wat-shimmer 3.5s linear infinite;
+}
+
+/* =========================================================================
+   Reduced-motion: stop all decorative animation, reveal everything instantly
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-arrow,
+  .anim-float,
+  .anim-stripe-shimmer {
+    animation: none !important;
+  }
+
+  .anim-hover-float {
+    transition: none;
+  }
+  .anim-hover-float:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Reveals must never be left hidden when motion is reduced */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
