@@ -113,8 +113,12 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* clear the sticky bar so a centered/short page's content isn't hidden */
-  padding-block: calc(var(--nav-h) + var(--space-5)) var(--space-6);
+  /* The nav-scroll lands the section top just under the sticky bar (offset
+     -nav-h), so reserve that nav-h at the BOTTOM instead of the top. This
+     centers the content within the visible area below the bar rather than
+     pushing it low. (viewport-independent: content lands at the clear-area
+     center for any height.) */
+  padding-block: var(--space-5) calc(var(--space-5) + var(--nav-h));
 }
 
 /* On small screens content is naturally tall — don't force a rigid 100vh
