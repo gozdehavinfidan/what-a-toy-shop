@@ -61,6 +61,21 @@ body { background: transparent; }
 [data-bg="red"] .section__eyebrow {
   color: var(--cream);
 }
+/* The page background tweens (e.g. sun -> red) as you scroll BETWEEN sections,
+   so for ~0.6s a light eyebrow sits on the previous page's yellow and would
+   vanish. A navy outline keeps these light eyebrows legible on ANY background
+   throughout that hand-off (and adds a touch of depth on the settled color). */
+[data-bg="red"] .section__eyebrow,
+[data-bg="navy"] .section__eyebrow {
+  /* A crisp 1px navy outline on all sides (plus a soft drop) so the light text
+     stays sharp on yellow, red AND navy — bulletproof through the hand-off. */
+  text-shadow:
+    -1px -1px 0 rgba(20, 28, 56, 0.85),
+     1px -1px 0 rgba(20, 28, 56, 0.85),
+    -1px  1px 0 rgba(20, 28, 56, 0.85),
+     1px  1px 0 rgba(20, 28, 56, 0.85),
+     0 2px 5px rgba(20, 28, 56, 0.5);
+}
 
 [data-bg="red"] .section__lead,
 [data-bg="navy"] .section__lead,
