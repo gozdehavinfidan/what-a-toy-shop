@@ -17,7 +17,9 @@
   overflow: hidden;
   isolation: isolate;
   background: var(--bg-yellow);  /* fallback before #bg-layer paints */
-  padding-block: calc(var(--nav-h) + var(--space-5)) var(--space-7);
+  /* Symmetric top/bottom padding so the flex-centered content sits at the true
+     viewport middle. The top still clears the fixed navbar (--nav-h). */
+  padding-block: calc(var(--nav-h) + var(--space-5));
 }
 
 /* ===================== Decoration layer ===================== */
