@@ -314,10 +314,11 @@
 .hero__badge {
   position: absolute;
   z-index: 4;
-  bottom: 4%;
-  left: -4%;
-  width: clamp(86px, 11vw, 118px);
-  height: clamp(86px, 11vw, 118px);
+  /* Sit like a sticker straddling the bottom-left corner of the main photo. */
+  bottom: 1%;
+  left: 7%;
+  width: clamp(118px, 15.5vw, 162px);
+  height: clamp(118px, 15.5vw, 162px);
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -331,7 +332,7 @@
 .hero__badge::before {
   content: "";
   position: absolute;
-  inset: 9px;
+  inset: 12px;
   border-radius: 50%;
   background: var(--cream);
   border: 2px dashed rgba(42, 59, 110, 0.5);
@@ -340,7 +341,7 @@
   position: relative;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  font-size: clamp(1.05rem, 1.75vw, 1.4rem);
   line-height: 1.05;
   text-align: center;
   color: var(--red);
