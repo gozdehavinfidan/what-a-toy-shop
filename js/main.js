@@ -6,7 +6,7 @@
    ========================================================================= */
 
 import { initSmoothScroll } from './smooth-scroll.js?v=2';
-import { initNav } from './nav.js?v=1';
+import { initNav } from './nav.js?v=2';
 import { initHeadline } from './text-effect.js?v=2';
 import { initHeroMotion } from './hero-motion.js?v=2';
 import { initProducts } from './products.js?v=9';

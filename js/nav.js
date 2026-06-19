@@ -89,6 +89,12 @@ export function initNav() {
     sections.push(section);
   });
 
+  // Also observe the hero (first page). It has no nav item, so when it's the
+  // active page setActive('hero') clears every link — otherwise the last active
+  // link (Toys) stays red after scrolling back up to the hero.
+  const heroSection = document.getElementById('hero');
+  if (heroSection && !sections.includes(heroSection)) sections.push(heroSection);
+
   const setActive = (id) => {
     links.forEach((link) => {
       const href = link.getAttribute('href') || '';
