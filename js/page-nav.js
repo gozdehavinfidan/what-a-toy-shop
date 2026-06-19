@@ -24,8 +24,8 @@ const DOT_LABELS = {
   hero: 'Home',
   products: 'Toys',
   gallery: 'Gallery',
-  locations: 'Our Shops',
-  contact: 'Our Story',
+  locations: 'Visit Us',
+  contact: 'Contact',
 };
 
 export function initPageNav(lenis) {
