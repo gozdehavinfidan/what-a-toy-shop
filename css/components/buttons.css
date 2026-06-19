@@ -58,25 +58,25 @@
   outline-offset: 3px;
 }
 
-/* Gmail — white "Google button" carrying the colorful Gmail logo, so it reads
-   as Gmail and stays distinct from the solid-red "Find a Store". */
-.btn--gmail {
-  background: #fff;
-  color: #3c4043;            /* Google UI text gray */
-  border-color: #dadce0;     /* Google UI border gray */
-  box-shadow: var(--shadow-sm);
+/* Email — solid navy with a generic envelope icon (provider-neutral; the link
+   is a plain mailto: so it opens whatever mail app the visitor uses). */
+.btn--email {
+  background: var(--navy);
+  color: var(--cream);
+  border-color: var(--navy);
+  box-shadow: 0 6px 18px rgba(42, 59, 110, 0.3);
 }
-.btn--gmail:hover {
-  background: #f8f9fa;
-  border-color: #dadce0;
-  color: #3c4043;
+.btn--email:hover {
+  background: #22305c;
+  border-color: #22305c;
+  color: var(--cream);
   transform: translateY(-2px);
 }
-.btn--gmail:focus-visible {
-  outline: 3px solid var(--navy);
+.btn--email:focus-visible {
+  outline: 3px solid var(--red);
   outline-offset: 3px;
 }
-.btn--gmail .btn__icon { width: 1.25em; height: 1.25em; }
+.btn--email .btn__icon { width: 1.2em; height: 1.2em; }
 
 /* Instagram — the brand's signature multicolor gradient */
 .btn--instagram {
