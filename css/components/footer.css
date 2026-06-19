@@ -43,7 +43,15 @@
 .footer__brand {
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* logo + tagline + social share one left edge */
   gap: var(--space-3);
+}
+
+/* Keep the code-drawn SVG logo at its true viewBox ratio (300:110) instead of
+   stretching to the full column width, which made it look centered. */
+.footer__brand .brand-logo {
+  width: calc(84px * 300 / 110);
+  align-self: flex-start;
 }
 
 .footer__logo {
