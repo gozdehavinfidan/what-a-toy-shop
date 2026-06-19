@@ -5,10 +5,16 @@
    Uses design tokens from variables.css — no hardcoded brand hex.
    ========================================================================= */
 
-/* ---- Sticky shell -------------------------------------------------------- */
+/* ---- Fixed shell --------------------------------------------------------- */
 .navbar {
-  position: sticky;
+  /* Fixed (overlay), NOT sticky: a sticky bar stays in normal flow and reserves
+     its own height at the top of the document, which pushed the 100vh hero down
+     by --nav-h and broke its vertical centering. Each section already reserves
+     the bar via its own top padding / scroll-padding-top, so the bar overlays. */
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: var(--z-nav);
   min-height: var(--nav-h);
   /* Frosted warm-cream bar — highly translucent so the colorful sections
