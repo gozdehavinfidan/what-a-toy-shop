@@ -263,12 +263,13 @@
   transition: opacity 0.8s var(--ease-out);
 }
 
-/* Main anchor — the bright store-aisle interior (portrait) */
+/* Main anchor — the full storefront (landscape; ratio matches the photo so the
+   whole shop front shows with no cropping). Centered in the square showcase. */
 .hero__photo--main {
-  width: 62%;
-  aspect-ratio: 3 / 4;
-  top: 9%;
-  left: 19%;
+  width: 72%;
+  aspect-ratio: 1031 / 702;
+  top: 26%;
+  left: 14%;
   z-index: 2;
   animation-delay: 0.05s;
   /* float baked WITH the rotation so the tilt is preserved while bobbing */
