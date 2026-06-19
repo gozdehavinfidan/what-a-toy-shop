@@ -234,6 +234,10 @@
   max-width: min(clamp(440px, 42vw, 720px), 62vh);
   aspect-ratio: 1 / 1;
   justify-self: center;
+  /* Become a size container so the "Come play!" badge can be sized as a % of
+     the showcase (cqi units) — that keeps the badge:card ratio constant no
+     matter whether the showcase is width- or height-constrained. */
+  container-type: inline-size;
 }
 
 .hero__photo {
@@ -321,8 +325,10 @@
   /* Sit like a sticker straddling the bottom-left corner of the main photo. */
   bottom: 1%;
   left: 7%;
-  width: clamp(118px, 15.5vw, 162px);
-  height: clamp(118px, 15.5vw, 162px);
+  /* Sized as a % of the showcase (container units) so it scales WITH the photo
+     collage and the badge:card ratio never drifts on small/short monitors. */
+  width: 30cqi;
+  height: 30cqi;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -336,7 +342,7 @@
 .hero__badge::before {
   content: "";
   position: absolute;
-  inset: 12px;
+  inset: 2.1cqi; /* dashed inner ring offset scales with the badge */
   border-radius: 50%;
   background: var(--cream);
   border: 2px dashed rgba(42, 59, 110, 0.5);
@@ -345,7 +351,9 @@
   position: relative;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.05rem, 1.75vw, 1.4rem);
+  /* Scales with the badge (which scales with the showcase) so the text always
+     fits the sticker; clamped for a readable floor/ceiling. */
+  font-size: clamp(0.8rem, 4cqi, 1.45rem);
   line-height: 1.05;
   text-align: center;
   color: var(--red);
