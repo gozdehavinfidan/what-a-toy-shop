@@ -58,23 +58,25 @@
   outline-offset: 3px;
 }
 
-/* Gmail — Google red (the "Email Us" CTA opens a Gmail compose window) */
+/* Gmail — white "Google button" carrying the colorful Gmail logo, so it reads
+   as Gmail and stays distinct from the solid-red "Find a Store". */
 .btn--gmail {
-  background: #ea4335;
-  color: #fff;
-  border-color: #ea4335;
-  box-shadow: 0 6px 18px rgba(234, 67, 53, 0.35);
+  background: #fff;
+  color: #3c4043;            /* Google UI text gray */
+  border-color: #dadce0;     /* Google UI border gray */
+  box-shadow: var(--shadow-sm);
 }
 .btn--gmail:hover {
-  background: #d33b2c;
-  border-color: #d33b2c;
-  color: #fff;
+  background: #f8f9fa;
+  border-color: #dadce0;
+  color: #3c4043;
   transform: translateY(-2px);
 }
 .btn--gmail:focus-visible {
   outline: 3px solid var(--navy);
   outline-offset: 3px;
 }
+.btn--gmail .btn__icon { width: 1.25em; height: 1.25em; }
 
 /* Instagram — the brand's signature multicolor gradient */
 .btn--instagram {
