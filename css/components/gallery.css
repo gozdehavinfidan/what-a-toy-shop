@@ -98,9 +98,9 @@
 .gallery__img {
   display: block;
   width: 100%;
-  /* Big, bold square thumbs — large and legible while keeping the preview to
-     one clean row that still fits a viewport. */
-  aspect-ratio: 1 / 1;
+  /* Slightly landscape thumbs (4:3) keep the single preview row short enough to
+     fit the viewport without overflow, even on shorter laptop screens. */
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: inherit;
   background: var(--surface-alt);

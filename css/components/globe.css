@@ -56,8 +56,9 @@
    reserves room for the detail below, so the globe never shrinks/resizes). */
 #globe-canvas.locations__globe {
   /* Big on desktop, but the min must stay below small-phone widths or it forces
-     horizontal scroll. */
-  width: clamp(300px, 42vw, 560px);
+     horizontal scroll. The 62vh cap keeps the (square) globe from making the
+     locations page taller than the viewport on short screens. */
+  width: min(clamp(300px, 40vw, 520px), 62vh);
   aspect-ratio: 1 / 1;
   min-height: 300px;
   margin-inline: auto;

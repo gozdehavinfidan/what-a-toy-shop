@@ -228,9 +228,10 @@
 .hero__showcase {
   position: relative;
   width: 100%;
-  /* Bigger collage, and it scales up with the viewport so it never looks small
-     against the large copy on big monitors. */
-  max-width: clamp(480px, 44vw, 760px);
+  /* Scales with the viewport so it never looks small against the large copy,
+     but the 62vh cap stops the (square) collage from pushing the hero taller
+     than the screen on short/wide laptops. */
+  max-width: min(clamp(440px, 42vw, 720px), 62vh);
   aspect-ratio: 1 / 1;
   justify-self: center;
 }

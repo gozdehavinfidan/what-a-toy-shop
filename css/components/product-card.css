@@ -24,7 +24,7 @@
 /* Each card is a fixed-width slide; trailing margin (not flex gap) keeps the
    duplicated set perfectly even so the -50% loop is seamless. */
 .products__track > .card {
-  flex: 0 0 clamp(240px, 72vw, 320px);
+  flex: 0 0 clamp(220px, 56vw, 290px);
   margin-right: var(--space-6);
 }
 
@@ -73,10 +73,19 @@
   z-index: 1;
 }
 
+/* Shorter media on product cards so the whole "page" fits the viewport without
+   overflow (the gallery/location cards keep the base 4/3 from cards.css). */
+.product-card .card__media {
+  aspect-ratio: 16 / 9;
+}
+
 .product-card .card__body {
   /* leave room for the tag at the bottom, push it down */
   flex: 1 1 auto;
   text-align: center; /* center the title + blurb text */
+  /* tighter than the base card so the page fits without overflow */
+  padding: var(--space-4);
+  gap: var(--space-2);
 }
 
 /* ---- Soft "Find it in-store" tag — informational, NOT a buy button ---- */

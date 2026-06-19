@@ -113,12 +113,10 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* The nav-scroll lands the section top just under the sticky bar (offset
-     -nav-h), so reserve that nav-h at the BOTTOM instead of the top. This
-     centers the content within the visible area below the bar rather than
-     pushing it low. (viewport-independent: content lands at the clear-area
-     center for any height.) */
-  padding-block: var(--space-5) calc(var(--space-5) + var(--nav-h));
+  /* Top clears the sticky bar via html{scroll-padding-top}. Keep the vertical
+     padding light so a full page's content fits the viewport without overflow;
+     justify-content:center handles the vertical placement. */
+  padding-block: var(--space-5) var(--space-7);
 }
 
 /* On small screens content is naturally tall — don't force a rigid 100vh
