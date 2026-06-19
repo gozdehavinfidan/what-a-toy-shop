@@ -419,7 +419,7 @@
 .hero__scroll-hint {
   position: absolute;
   left: 50%;
-  bottom: var(--space-5);
+  bottom: var(--space-7);
   transform: translateX(-50%);
   z-index: 1;
   display: inline-flex;
