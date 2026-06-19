@@ -62,7 +62,7 @@ export function initLightbox() {
     const item = items[index];
     // RAW path -> encodeURI (spaces / parentheses / Turkish folder).
     imgEl.src = encodeURI(item.src);
-    imgEl.alt = item.caption || 'Store photo';
+    imgEl.alt = item.caption || 'Shop photo';
     captionTextEl.textContent = item.caption || '';
     counterEl.textContent = (index + 1) + ' / ' + items.length;
 

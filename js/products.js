@@ -65,7 +65,7 @@ function buildCard(product) {
   // Soft tag — drives foot traffic, not a purchase
   const tag = document.createElement('span');
   tag.className = 'product-card__tag';
-  tag.textContent = 'Find it in-store';
+  tag.textContent = 'Find it in our shops';
 
   body.append(title, blurb, tag);
   card.append(media, body);

@@ -132,7 +132,7 @@ async function openStoreDetail(id) {
       const img = document.createElement('img');
       // Paths are RAW (spaces / parens / Turkish chars) — always encodeURI.
       img.src = encodeURI(item.src);
-      img.alt = `${loc.name} — store photo ${i + 1}`;
+      img.alt = `${loc.name} — shop photo ${i + 1}`;
       img.loading = 'lazy';
       img.decoding = 'async';
       // If the photo can't load (e.g. a removed file), hide this thumbnail and

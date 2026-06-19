@@ -182,7 +182,7 @@ function renderStoreList(leftEl, rightEl, locations) {
       const img = document.createElement('img');
       img.className = 'store-list__cover';
       img.src = encodeURI(cover);
-      img.alt = `${loc.name} storefront`;
+      img.alt = `${loc.name} shopfront`;
       img.loading = 'lazy';
       img.decoding = 'async';
       // If a photo is ever missing, drop the thumbnail rather than show a

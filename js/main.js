@@ -9,16 +9,16 @@ import { initSmoothScroll } from './smooth-scroll.js?v=2';
 import { initNav } from './nav.js?v=1';
 import { initHeadline } from './text-effect.js?v=2';
 import { initHeroMotion } from './hero-motion.js?v=2';
-import { initProducts } from './products.js?v=3';
-import { initStoreDetail } from './store-detail.js?v=5';
-import { initGlobe } from './globe-locations.js?v=8';
-import { initLightbox } from './lightbox.js?v=3';
-import { initGallery } from './gallery.js?v=6';
+import { initProducts } from './products.js?v=4';
+import { initStoreDetail } from './store-detail.js?v=6';
+import { initGlobe } from './globe-locations.js?v=9';
+import { initLightbox } from './lightbox.js?v=4';
+import { initGallery } from './gallery.js?v=7';
 import { initReveals } from './reveals.js?v=1';
 import { initContactBalls } from './contact-balls.js?v=1';
 import { initBgScroll } from './bg-scroll.js?v=1';
 import { initTransitions } from './transitions.js?v=2';
-import { initPageNav } from './page-nav.js?v=7';
+import { initPageNav } from './page-nav.js?v=8';
 
 // Shared cross-module namespace.
 window.WhatAToy = window.WhatAToy || {};

@@ -90,7 +90,7 @@ export function initGallery() {
 
     gridEl.innerHTML = '';
     if (!currentItems.length) {
-      gridEl.innerHTML = '<p class="gallery__empty">No photos in this store yet.</p>';
+      gridEl.innerHTML = '<p class="gallery__empty">No photos in this shop yet.</p>';
       return;
     }
 
