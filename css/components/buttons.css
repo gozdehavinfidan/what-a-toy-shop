@@ -78,12 +78,13 @@
 }
 .btn--email .btn__icon { width: 1.2em; height: 1.2em; }
 
-/* Instagram — the brand's signature multicolor gradient */
+/* Instagram — the brand's warm multicolor gradient (orange → magenta, no the
+   cool indigo end so it doesn't read as a stray dark-blue patch). */
 .btn--instagram {
-  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 22%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+  background: linear-gradient(45deg, #f9a13b 0%, #e66c3a 28%, #dc2743 55%, #cc2366 78%, #bc1888 100%);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 6px 18px rgba(214, 41, 118, 0.32);
+  box-shadow: 0 6px 18px rgba(204, 35, 102, 0.32);
 }
 .btn--instagram:hover {
   filter: brightness(1.06) saturate(1.05);
