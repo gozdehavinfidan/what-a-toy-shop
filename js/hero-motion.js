@@ -21,12 +21,12 @@ const PHOTO_POOLS = {
   'hero__photo--plush': [
     'assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg',
     'assets/Towne East Square Mall WICHITA/peluslar/peluslar.jpeg',
-    'assets/Towne East Square Mall WICHITA/peluslar/TowneEast (12).jpeg',
+    'assets/Towne East Square Mall WICHITA/peluslar/TowneEast (13).jpeg',
     'assets/Towne East Square Mall WICHITA/peluslar/TowneEast (24).jpeg',
   ],
   'hero__photo--ride': [
     'assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg',
-    'assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (20).jpeg',
+    'assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (21).jpeg',
     'assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (22).jpeg',
     'assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (17).jpeg',
   ],

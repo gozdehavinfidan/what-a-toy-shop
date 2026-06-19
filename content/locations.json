@@ -5,8 +5,8 @@
     "mall": "Woodland Hills Mall",
     "city": "Tulsa",
     "state": "OK",
-    "lat": 36.30,
-    "lng": -95.70,
+    "lat": 36.3,
+    "lng": -95.7,
     "mapsQuery": "What-A-Toy Woodland Hills Mall Tulsa OK",
     "photos": [
       "assets/Woodland Hills Mall TULSA/Woodland (1).jpeg",
@@ -23,8 +23,8 @@
     "mall": "Tulsa Premium Outlets",
     "city": "Jenks",
     "state": "OK",
-    "lat": 35.70,
-    "lng": -96.20,
+    "lat": 35.7,
+    "lng": -96.2,
     "mapsQuery": "What-A-Toy Tulsa Premium Outlets Jenks OK",
     "photos": [
       "assets/Premium Outlet Mall TULSA/PremiumOutlet (1).jpeg",
@@ -42,14 +42,13 @@
     "city": "Sioux Falls",
     "state": "SD",
     "lat": 43.508,
-    "lng": -96.770,
+    "lng": -96.77,
     "mapsQuery": "What-A-Toy The Empire Mall Sioux Falls SD",
     "photos": [
       "assets/The Empire Mall South Dakota/Empire (1).jpeg",
       "assets/The Empire Mall South Dakota/Empire (2).jpeg",
       "assets/The Empire Mall South Dakota/Empire (3).jpeg",
-      "assets/The Empire Mall South Dakota/Empire (4).jpeg",
-      "assets/The Empire Mall South Dakota/Empire (5).jpeg"
+      "assets/The Empire Mall South Dakota/Empire (4).jpeg"
     ]
   },
   {
@@ -58,8 +57,8 @@
     "mall": "Towne East Square",
     "city": "Wichita",
     "state": "KS",
-    "lat": 37.700,
-    "lng": -97.220,
+    "lat": 37.7,
+    "lng": -97.22,
     "mapsQuery": "What-A-Toy Towne East Square Wichita KS",
     "photos": [
       "assets/Towne East Square Mall WICHITA/TowneEast (2).jpeg",
@@ -98,12 +97,12 @@
     "lng": -93.262,
     "mapsQuery": "What-A-Toy Battlefield Mall Springfield MO",
     "photos": [
-      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11.jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
       "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg",
       "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (1).jpeg",
-      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (1).jpeg",
       "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
-      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12 (2).jpeg"
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
+      "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (3).jpeg"
     ]
   }
 ]
