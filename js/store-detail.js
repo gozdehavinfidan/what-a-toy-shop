@@ -135,10 +135,19 @@ async function openStoreDetail(id) {
       img.alt = `${loc.name} — store photo ${i + 1}`;
       img.loading = 'lazy';
       img.decoding = 'async';
+      // If the photo can't load (e.g. a removed file), hide this thumbnail and
+      // mark it so the lightbox skips it — the user never sees a broken image.
+      img.addEventListener('error', () => {
+        item.broken = true;
+        btn.remove();
+      });
       btn.appendChild(img);
       btn.addEventListener('click', () => {
         if (window.WhatAToy && typeof window.WhatAToy.openLightbox === 'function') {
-          window.WhatAToy.openLightbox(items, i);
+          // Only pass photos that actually loaded; re-aim the index accordingly.
+          const good = items.filter((it) => !it.broken);
+          const start = Math.max(0, good.indexOf(item));
+          window.WhatAToy.openLightbox(good, start);
         }
       });
       photosEl.appendChild(btn);

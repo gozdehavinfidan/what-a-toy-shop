@@ -14,7 +14,7 @@
 // Shared namespace for cross-module calls.
 window.WhatAToy = window.WhatAToy || {};
 
-const LOCATIONS_URL = 'content/locations.json?v=3';
+const LOCATIONS_URL = 'content/locations.json?v=4';
 
 // North-America point of view for initial load.
 const HOME_POV = { lat: 39, lng: -98, altitude: 1.8 };
@@ -185,6 +185,9 @@ function renderStoreList(leftEl, rightEl, locations) {
       img.alt = `${loc.name} storefront`;
       img.loading = 'lazy';
       img.decoding = 'async';
+      // If a photo is ever missing, drop the thumbnail rather than show a
+      // broken-image icon (keep the store's name/place text).
+      img.addEventListener('error', () => img.remove());
       btn.append(img, text);
     } else {
       btn.append(text);

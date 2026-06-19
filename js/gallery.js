@@ -5,7 +5,7 @@
    ES module: exports initGallery(); does NOT auto-run on import.
    ========================================================================= */
 
-const GALLERY_URL = 'content/gallery.json?v=3';
+const GALLERY_URL = 'content/gallery.json?v=4';
 
 // How many preview photos to show in the gallery section (one big row of 3).
 const PREVIEW_COUNT = 3;
@@ -111,6 +111,8 @@ export function initGallery() {
       img.alt = item.caption;
       // RAW path -> encodeURI for spaces / parentheses / Turkish folder name.
       img.src = encodeURI(item.src);
+      // Hide the thumbnail entirely if its photo can't load (no broken icon).
+      img.addEventListener('error', () => btn.remove());
 
       btn.appendChild(img);
       btn.addEventListener('click', () => {

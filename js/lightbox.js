@@ -47,6 +47,15 @@ export function initLightbox() {
   // Buttons that participate in the focus trap, in tab order.
   const focusables = [closeBtn, prevBtn, nextBtn];
 
+  // Defensive: if a photo can't load, drop it from the set and move on so the
+  // viewer never displays a broken image. Close if none remain.
+  imgEl.addEventListener('error', () => {
+    if (!root.classList.contains('is-open') || !items.length) return;
+    items.splice(index, 1);
+    if (!items.length) { close(); return; }
+    show(index); // re-clamps the index to a still-valid photo
+  });
+
   /* ---- Render the current item ---- */
   function render() {
     if (!items.length) return;
