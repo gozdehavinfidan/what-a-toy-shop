@@ -24,7 +24,7 @@ const DOT_LABELS = {
   hero: 'Home',
   products: 'Toys',
   gallery: 'Gallery',
-  locations: 'Shop',
+  locations: 'Our Shops',
   contact: 'Our Story',
 };
 

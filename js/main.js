@@ -18,7 +18,7 @@ import { initReveals } from './reveals.js?v=1';
 import { initContactBalls } from './contact-balls.js?v=1';
 import { initBgScroll } from './bg-scroll.js?v=1';
 import { initTransitions } from './transitions.js?v=2';
-import { initPageNav } from './page-nav.js?v=8';
+import { initPageNav } from './page-nav.js?v=9';
 
 // Shared cross-module namespace.
 window.WhatAToy = window.WhatAToy || {};
