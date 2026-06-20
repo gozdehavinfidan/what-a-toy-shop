@@ -23,6 +23,20 @@
     ]
   },
   {
+    "id": "squishies",
+    "shop": "grapevine",
+    "title": "Squishies & Squeezies",
+    "blurb": "Mystery dumplings and squishy surprises everyone's after.",
+    "photo": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (18).jpeg",
+    "photos": [
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (18).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (21).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (20).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (19).jpeg",
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (22).jpeg"
+    ]
+  },
+  {
     "id": "rideon",
     "shop": "towne-east",
     "title": "Ride-On Cars & Motors",
