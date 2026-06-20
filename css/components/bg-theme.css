@@ -132,11 +132,18 @@ html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* Center the whole page (eyebrow + title + content) as one block. The `safe`
+     keyword is key: when a page's content is TALLER than the viewport (e.g. the
+     product/gallery grids at 1920x1080), plain `center` would overflow equally
+     top & bottom and CLIP the top — hiding the eyebrow ("On our shelves",
+     "Step inside") above the fold. `safe center` falls back to top-alignment in
+     that case so nothing is ever clipped. Older browsers ignore the second
+     declaration and keep `center`. */
   justify-content: center;
-  /* Top clears the sticky bar via html{scroll-padding-top}. Keep the vertical
-     padding light so a full page's content fits the viewport without overflow;
-     justify-content:center handles the vertical placement. */
-  padding-block: var(--space-5) var(--space-7);
+  justify-content: safe center;
+  /* Top padding clears the fixed navbar so that when a tall page top-aligns,
+     its eyebrow sits just BELOW the bar instead of behind it. */
+  padding-block: calc(var(--nav-h) + var(--space-5)) var(--space-7);
 }
 
 /* On small screens content is naturally tall — don't force a rigid 100vh
