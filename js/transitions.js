@@ -28,19 +28,24 @@ export function initTransitions(lenis) {
   const gsap = window.gsap;
   const hasWipe = !!(overlay && panels.length && gsap && !prefersReduced);
 
-  const NAV_H = 80; // matches --nav-h; offset so sticky nav doesn't cover target
-
-  /* ---- Scroll helper: prefer Lenis, fall back to native ---------------- */
+  /* ---- Scroll helper: prefer Lenis, fall back to native ----------------
+     Scroll the section's TOP edge to viewport y=0 (offset 0) — the SAME
+     resting position page-nav.js uses for wheel-snap and the page-dot rail.
+     Each .section already reserves the fixed navbar via its own top padding
+     (nav-h + space-5), so no extra offset is needed; adding one here used to
+     push nav-click landings 80px lower than scroll landings, so the same page
+     looked off-center depending on how you reached it. */
   function scrollToTarget(target) {
     if (!target) return;
     const liveLenis = lenis || (window.WhatAToy && window.WhatAToy.lenis);
     if (liveLenis && typeof liveLenis.scrollTo === 'function') {
-      liveLenis.scrollTo(target, { offset: -NAV_H });
-    } else if (target.scrollIntoView) {
-      target.scrollIntoView({
-        behavior: prefersReduced ? 'auto' : 'smooth',
-        block: 'start',
-      });
+      liveLenis.scrollTo(target, { offset: 0 });
+    } else {
+      // Native fallback: scroll the target's top to y=0. Using window.scrollTo
+      // (not scrollIntoView) sidesteps CSS scroll-padding-top, so this lands at
+      // the exact same spot as the Lenis path and page-nav.js.
+      const y = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
     }
   }
 

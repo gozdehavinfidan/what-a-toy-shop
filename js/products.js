@@ -30,7 +30,8 @@ function buildCard(product) {
     if (navLink) {
       navLink.click();
     } else if (wt.lenis) {
-      wt.lenis.scrollTo('#locations', { offset: -80 });
+      // offset 0 matches page-nav.js / transitions.js so the page rests centered.
+      wt.lenis.scrollTo('#locations', { offset: 0 });
     } else {
       const target = document.getElementById('locations');
       if (target) target.scrollIntoView({ behavior: 'smooth' });
