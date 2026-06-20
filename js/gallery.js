@@ -5,7 +5,7 @@
    ES module: exports initGallery(); does NOT auto-run on import.
    ========================================================================= */
 
-const GALLERY_URL = 'content/gallery.json?v=4';
+const GALLERY_URL = 'content/gallery.json?v=5';
 
 // How many preview photos to show in the gallery section (one big row of 3).
 const PREVIEW_COUNT = 3;
