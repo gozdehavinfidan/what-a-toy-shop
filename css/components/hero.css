@@ -493,10 +493,16 @@
 @media (max-width: 460px) {
   .hero__actions { width: 100%; flex-direction: column; }
   .hero__actions .btn { width: 100%; }
-  /* Trim the busiest floater so the collage stays clean on tiny screens */
-  .hero__photo--ride { display: none; }
-  .hero__photo--main { width: 70%; left: 15%; }
-  .hero__photo--plush { width: 50%; }
+  /* Keep all three photos on tiny screens: re-tuck the collage so the cards
+     stay inside the (narrow) showcase instead of overflowing/overlapping.
+     Storefront centered as the anchor, plush top-left, ride bottom-right —
+     both corner cards pulled inward so neither spills past the hero edge. */
+  .hero__photo--main  { width: 70%; left: 15%; top: 26%; }
+  .hero__photo--plush { width: 46%; top: -2%; left: -6%; }
+  .hero__photo--ride  { width: 46%; bottom: 3%; right: -5%; }
+  /* Drop the scroll hint lower so it clears the "Come play!" badge / collage
+     corner instead of overlapping it on phones. */
+  .hero__scroll-hint { bottom: var(--space-4); }
 }
 
 /* ===================== Reduced motion ===================== */
