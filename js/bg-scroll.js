@@ -4,8 +4,16 @@
    match whichever [data-bg] section currently occupies the viewport center.
    Sections sharing a data-bg value share a color (related pages = same bg).
 
-   Depends on globals: window.gsap, window.ScrollTrigger (registered in
-   index.html). Falls back gracefully (static color) without them.
+   Source of truth = LIVE layout, polled every animation frame (the same
+   approach page-nav.js uses for its active dot). We deliberately do NOT use
+   precomputed ScrollTrigger boundaries here: the globe, product marquee,
+   gallery grid and store list all render asynchronously (after fetch) and
+   resize their sections AFTER load, which left those boundaries stale and made
+   the wrong section "own" the color — i.e. the page background sometimes
+   settled on the wrong color. Measuring each frame can never drift out of sync.
+
+   Uses window.gsap for a smooth color tween when available; otherwise sets the
+   color instantly. No hard dependency on ScrollTrigger.
 
    Exports: initBgScroll()
    ========================================================================= */
@@ -25,46 +33,53 @@ export function initBgScroll() {
   };
 
   const gsap = window.gsap;
-  const ScrollTrigger = window.ScrollTrigger;
 
   // Seed the initial color from the first section (hero).
-  const firstKey = sections[0].getAttribute('data-bg');
-  layer.style.backgroundColor = colorFor(firstKey);
+  let current = sections[0].getAttribute('data-bg');
+  layer.style.backgroundColor = colorFor(current);
 
-  // No GSAP/ScrollTrigger: leave the seeded color; nothing animated.
-  if (!gsap || !ScrollTrigger) return;
-
-  let current = firstKey;
   function applyColor(key) {
-    if (key === current) return;
+    if (!key || key === current) return;
     current = key;
-    gsap.to(layer, {
-      backgroundColor: colorFor(key),
-      duration: 0.6,
-      ease: 'power2.out',
-      overwrite: true,
-    });
+    const color = colorFor(key);
+    if (gsap) {
+      gsap.to(layer, {
+        backgroundColor: color,
+        duration: 0.6,
+        ease: 'power2.out',
+        overwrite: true,
+      });
+    } else {
+      layer.style.backgroundColor = color;
+    }
   }
 
-  // One trigger per section: it "owns" the page color while its body spans the
-  // viewport middle. As you scroll, exactly one section is active at a time.
-  sections.forEach((sec) => {
-    const key = sec.getAttribute('data-bg');
-    ScrollTrigger.create({
-      trigger: sec,
-      start: 'top 50%',
-      end: 'bottom 50%',
-      onToggle: (self) => {
-        if (self.isActive) applyColor(key);
-      },
-    });
-  });
-
-  // Positions depend on final layout (images, globe, fonts) — recompute once
-  // everything settles so the color hand-offs line up with the real sections.
-  if (document.readyState === 'complete') {
-    ScrollTrigger.refresh();
-  } else {
-    window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+  // Which [data-bg] section's center is nearest the viewport center right now?
+  // With full-height pages this is exactly the page you're looking at, and the
+  // color flips at the midpoint between two pages — so every page holds one
+  // stable color for its whole extent.
+  function activeKey() {
+    const mid = window.scrollY + window.innerHeight / 2;
+    let best = sections[0];
+    let bestDist = Infinity;
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      const center = rect.top + window.scrollY + rect.height / 2;
+      const d = Math.abs(center - mid);
+      if (d < bestDist) {
+        bestDist = d;
+        best = sec;
+      }
+    }
+    return best.getAttribute('data-bg');
   }
+
+  // Poll live positions every frame. The loop only triggers a tween when the
+  // active section actually changes, and the browser pauses rAF while the tab
+  // is hidden, so this is cheap.
+  function tick() {
+    applyColor(activeKey());
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 }
