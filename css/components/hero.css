@@ -132,6 +132,10 @@
 .hero__eyebrow {
   display: inline-flex;
   align-items: center;
+  /* Center the pill over the headline instead of hugging the column's left
+     edge, so "Welcome to What-A-Toy!" sits centered above "A Wonderland of
+     Toys". The title/tagline/buttons stay left-aligned. */
+  align-self: center;
   gap: var(--space-2);
   margin: 0;
   padding: 0.5em 1em;
