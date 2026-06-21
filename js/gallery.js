@@ -142,7 +142,7 @@ export function initGallery() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'btn btn--primary gallery__more-btn';
-    btn.textContent = `See all ${currentItems.length} photos`;
+    btn.textContent = 'See all photos';
     btn.addEventListener('click', () => {
       if (window.WhatAToy && typeof window.WhatAToy.openLightbox === 'function') {
         window.WhatAToy.openLightbox(currentItems, 0);
