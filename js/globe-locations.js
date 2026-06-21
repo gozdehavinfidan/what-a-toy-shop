@@ -3,7 +3,7 @@
    export initGlobe()
    - Fetch content/locations.json, cache to window.WhatAToy.locations
    - Build a globe.gl globe in #globe-canvas:
-       red point markers, slow autoRotate, gold atmosphere,
+       red point markers, static North-America view, gold atmosphere,
        blue-marble texture, transparent background, North-America POV
    - onPointClick => fly to point, then window.WhatAToy.openStoreDetail(id)
    - Render an accessible <button> per store into ul#store-list
@@ -106,11 +106,12 @@ export async function initGlobe() {
   // Initial camera over North America.
   globe.pointOfView(HOME_POV, 0);
 
-  // Slow auto-rotate (unless reduced-motion).
+  // No auto-rotate: every shop is in the Americas, so keep the globe parked on
+  // the North-America view (HOME_POV) instead of spinning away to empty ocean.
+  // Visitors can still drag/zoom manually.
   const controls = globe.controls();
   if (controls) {
-    controls.autoRotate = !prefersReduced;
-    controls.autoRotateSpeed = 0.45;
+    controls.autoRotate = false;
     controls.enableZoom = true;
     controls.minDistance = 180;
   }
@@ -127,12 +128,6 @@ export async function initGlobe() {
     ro.observe(mount);
   }
   window.addEventListener('resize', resize, { passive: true });
-
-  // Pause auto-rotate while the tab is hidden (save cycles).
-  document.addEventListener('visibilitychange', () => {
-    if (!controls) return;
-    controls.autoRotate = !document.hidden && !prefersReduced;
-  });
 
   // Expose for store-list buttons to fly the globe too.
   window.WhatAToy._globe = globe;
