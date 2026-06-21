@@ -41,8 +41,9 @@
     "shop": "towne-east",
     "title": "Ride-On Cars & Motors",
     "blurb": "Battery-powered adventures for little drivers.",
-    "photo": "assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg",
+    "photo": "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (23).jpeg",
     "photos": [
+      "assets/Grapevine Mills Mall GRAPEVINE/Grapevine (23).jpeg",
       "assets/Towne East Square Mall WICHITA/akulu araba motor/akulu motor.jpeg",
       "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (17).jpeg",
       "assets/Towne East Square Mall WICHITA/akulu araba motor/TowneEast (18).jpeg",
@@ -85,18 +86,6 @@
       "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.11 (2).jpeg",
       "assets/The Empire Mall South Dakota/Empire (1).jpeg",
       "assets/Battlefield Mall SPRINGFIELD/WhatsApp Image 2026-04-19 at 20.54.12.jpeg"
-    ]
-  },
-  {
-    "id": "sanrio",
-    "shop": "towne-east",
-    "title": "Sanrio & Friends",
-    "blurb": "Hello Kitty, Kuromi, and the whole crew.",
-    "photo": "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg",
-    "photos": [
-      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (10).jpeg",
-      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (1).jpeg",
-      "assets/Towne East Square Mall WICHITA/peluslar/TowneEast (11).jpeg"
     ]
   },
   {
