@@ -39,7 +39,13 @@ export function initBgScroll() {
   // browser chrome always matches the section you're actually looking at.
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   const setTheme = (color) => {
-    if (themeMeta && color) themeMeta.setAttribute('content', color);
+    if (!color) return;
+    if (themeMeta) themeMeta.setAttribute('content', color);
+    // iOS Safari paints the safe-area / overscroll (rubber-band) regions from
+    // the <html> background and falls back to it where theme-color is flaky, so
+    // keep it in sync too. #bg-layer (fixed) still covers the visible viewport,
+    // so this is invisible in normal view — it only colors the chrome edges.
+    document.documentElement.style.backgroundColor = color;
   };
 
   // Seed the initial color from the first section (hero).

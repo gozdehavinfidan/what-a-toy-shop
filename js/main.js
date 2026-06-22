@@ -16,7 +16,7 @@ import { initLightbox } from './lightbox.js?v=4';
 import { initGallery } from './gallery.js?v=7';
 import { initReveals } from './reveals.js?v=1';
 import { initContactBalls } from './contact-balls.js?v=1';
-import { initBgScroll } from './bg-scroll.js?v=3';
+import { initBgScroll } from './bg-scroll.js?v=4';
 import { initTransitions } from './transitions.js?v=2';
 import { initPageNav } from './page-nav.js?v=10';
 
