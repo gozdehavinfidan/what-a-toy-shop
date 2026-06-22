@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- viewport-fit=cover lets #bg-layer paint edge-to-edge under the iOS safe
+       areas (notch / home indicator) so the toolbar tint reads as one surface. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="A family-owned toy shop with six mall locations across the heartland. Come play, browse, and find wonder in every corner." />
+
+  <!-- Dynamic on iOS Safari: js/bg-scroll.js rewrites `content` to match the
+       visible section's background as you scroll (sun -> red -> navy). The value
+       below is just the initial hero color (golden "sun"). -->
+  <meta name="theme-color" content="#F9CE51" />
   <title>What-A-Toy! — More Than a Toy Shop</title>
 
   <!-- Brand favicon: code-drawn SVG badge matching the nav bar logo (bright red,

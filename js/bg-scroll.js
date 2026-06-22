@@ -34,9 +34,18 @@ export function initBgScroll() {
 
   const gsap = window.gsap;
 
+  // iOS Safari (15+) re-tints the status bar / bottom toolbar live when this
+  // meta tag's `content` changes. We keep it in lockstep with #bg-layer so the
+  // browser chrome always matches the section you're actually looking at.
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const setTheme = (color) => {
+    if (themeMeta && color) themeMeta.setAttribute('content', color);
+  };
+
   // Seed the initial color from the first section (hero).
   let current = sections[0].getAttribute('data-bg');
   layer.style.backgroundColor = colorFor(current);
+  setTheme(colorFor(current));
 
   function applyColor(key) {
     if (!key || key === current) return;
@@ -48,9 +57,14 @@ export function initBgScroll() {
         duration: 0.6,
         ease: 'power2.out',
         overwrite: true,
+        // Mirror the *interpolated* color each frame so the toolbar fades in
+        // sync with the page instead of snapping to the target early.
+        onUpdate: () => setTheme(getComputedStyle(layer).backgroundColor),
+        onComplete: () => setTheme(color),
       });
     } else {
       layer.style.backgroundColor = color;
+      setTheme(color);
     }
   }
 
