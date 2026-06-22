@@ -51,20 +51,21 @@ export function initBgScroll() {
     if (!key || key === current) return;
     current = key;
     const color = colorFor(key);
+    // Update the browser-chrome tint ONCE, to the discrete target color. Safari
+    // (both iOS and macOS) repaints its toolbar reliably on a single value
+    // change, but drops rapid per-frame updates — so we deliberately do NOT
+    // tween the meta. The page itself still fades smoothly via the GSAP tween
+    // below; only the chrome snaps, which is how native apps behave anyway.
+    setTheme(color);
     if (gsap) {
       gsap.to(layer, {
         backgroundColor: color,
         duration: 0.6,
         ease: 'power2.out',
         overwrite: true,
-        // Mirror the *interpolated* color each frame so the toolbar fades in
-        // sync with the page instead of snapping to the target early.
-        onUpdate: () => setTheme(getComputedStyle(layer).backgroundColor),
-        onComplete: () => setTheme(color),
       });
     } else {
       layer.style.backgroundColor = color;
-      setTheme(color);
     }
   }
 
